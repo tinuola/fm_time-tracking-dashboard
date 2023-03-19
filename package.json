@@ -1,0 +1,19 @@
+{
+  "name": "fm_time-tracking-dashboard",
+  "version": "1.0.0",
+  "description": "Solution to the _[]()_ challenge on Frontend Mentor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinuola/fm_time-tracking-dashboard.git"
+  },
+  "author": "TechTinu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinuola/fm_time-tracking-dashboard/issues"
+  },
+  "homepage": "https://github.com/tinuola/fm_time-tracking-dashboard#readme"
+}
