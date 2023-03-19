@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tinuola/fm_time-tracking-dashboard/issues"
   },
-  "homepage": "https://github.com/tinuola/fm_time-tracking-dashboard#readme"
+  "homepage": "https://github.com/tinuola/fm_time-tracking-dashboard#readme",
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
 }
