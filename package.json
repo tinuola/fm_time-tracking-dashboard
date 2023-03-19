@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "Solution to the _[]()_ challenge on Frontend Mentor.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/tinuola/fm_time-tracking-dashboard#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tinuola/fm_time-tracking-dashboard.git"
   },
-  "author": "TechTinu",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/tinuola/fm_time-tracking-dashboard/issues"
   },
-  "homepage": "https://github.com/tinuola/fm_time-tracking-dashboard#readme",
+  "author": "TechTinu",
+  "license": "ISC",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint  \"src/**/*.{js,jsx}\" --quiet",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
