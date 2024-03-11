@@ -1,16 +1,15 @@
-import React from 'react'
 // import PropTypes from 'prop-types'
 
-function StatCard({ stats }) {
+function StatCard({ stats, rangeTitle }) {
   return (
     <>
       <h3>StatCard</h3>
-      <p>Display Daily Stats</p>
+      <p>Display {rangeTitle} Stats</p>
       <ul>
         {stats.map((stat, index) => (
           <li key={index}>
-            {stat.title}: {stat.timeframes.daily.current} hour
-            {stat.timeframes.daily.current > 1 && `s`}
+            {stat.title}: {stat.time} hour
+            {stat.time > 1 && `s`}
           </li>
         ))}
       </ul>
