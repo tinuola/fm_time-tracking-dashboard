@@ -1,17 +1,17 @@
 // import PropTypes from 'prop-types'
 
-function UserCard({ user, ranges, handleTimePeriodSelection }) {
+function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
   return (
     <>
       <h3>UserCard</h3>
       <p>{user}</p>
       <div>
-        {ranges.map((range, index) => (
+        {periodBtns.map((period, index) => (
           <button
-            key={range}
+            key={period}
             onClick={() => handleTimePeriodSelection(index)}
           >
-            {ranges[index]}
+            {periodBtns[index]}
           </button>
         ))}
       </div>

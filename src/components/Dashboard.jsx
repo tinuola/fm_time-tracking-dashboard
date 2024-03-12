@@ -4,27 +4,31 @@ import UserCard from './UserCard'
 import data from '../data/data.json'
 
 function Dashboard() {
-  const ranges = ['daily', 'weekly', 'monthly']
-  const pastRanges = ['yesterday', 'last week', 'last month']
-  const [range, setRange] = useState(0)
-  const [rangeTitle, setRangeTitle] = useState(ranges[0])
-  const [pastRange, setPastRange] = useState(pastRanges[0])
-
+  // Data
   const user = data.user
+  const periods = data.range
 
-  const stats = data.stats.map((stat) => {
-    return {
-      title: stat.title,
-      currStat: stat.timeframes[ranges[range]].current,
-      prevStat: stat.timeframes[ranges[range]].previous,
-    }
-  })
+  // Return array of stats
+  function stats() {
+    return data.stats.map((stat) => {
+      return {
+        title: stat.title,
+        currStat: stat.timeframes[currPeriod].current,
+        prevStat: stat.timeframes[currPeriod].previous,
+      }
+    })
+  }
 
-  // When time ranges are clicked, update state
+  // States
+  const [period, setPeriod] = useState(0)
+  const [currPeriod, setCurrPeriod] = useState(periods[period].curr)
+  const [prevPeriod, setPrevPeriod] = useState(periods[period].prev)
+
+  // When time period is clicked, update states
   const switchTimePeriod = (num) => {
-    setRange(num)
-    setRangeTitle(ranges[num])
-    setPastRange(pastRanges[num])
+    setPeriod(num)
+    setCurrPeriod(periods[num].curr)
+    setPrevPeriod(periods[num].prev)
   }
 
   return (
@@ -32,13 +36,13 @@ function Dashboard() {
       <h2>Dashboard</h2>
       <UserCard
         user={user}
-        ranges={ranges}
+        periodBtns={periods.map((obj) => obj.curr)}
         handleTimePeriodSelection={switchTimePeriod}
       />
       <StatCard
-        rangeTitle={rangeTitle}
-        pastRange={pastRange}
-        stats={stats}
+        currPeriod={currPeriod}
+        prevPeriod={prevPeriod}
+        stats={stats()}
       />
     </div>
   )
