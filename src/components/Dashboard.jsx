@@ -5,15 +5,18 @@ import data from '../data/data.json'
 
 function Dashboard() {
   const ranges = ['daily', 'weekly', 'monthly']
+  const pastRanges = ['yesterday', 'last week', 'last month']
   const [range, setRange] = useState(0)
   const [rangeTitle, setRangeTitle] = useState(ranges[0])
+  const [pastRange, setPastRange] = useState(pastRanges[0])
 
   const user = data.user
 
   const stats = data.stats.map((stat) => {
     return {
       title: stat.title,
-      time: stat.timeframes[ranges[range]].current,
+      currStat: stat.timeframes[ranges[range]].current,
+      prevStat: stat.timeframes[ranges[range]].previous,
     }
   })
 
@@ -21,6 +24,7 @@ function Dashboard() {
   const switchTimePeriod = (num) => {
     setRange(num)
     setRangeTitle(ranges[num])
+    setPastRange(pastRanges[num])
   }
 
   return (
@@ -33,6 +37,7 @@ function Dashboard() {
       />
       <StatCard
         rangeTitle={rangeTitle}
+        pastRange={pastRange}
         stats={stats}
       />
     </div>
