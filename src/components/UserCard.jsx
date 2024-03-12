@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
   return (
@@ -17,6 +17,12 @@ function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
       </div>
     </>
   )
+}
+
+UserCard.propTypes = {
+  handleTimePeriodSelection: PropTypes.func,
+  periodBtns: PropTypes.array,
+  user: PropTypes.string,
 }
 
 export default UserCard

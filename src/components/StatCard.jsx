@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 function StatCard({ currPeriod, prevPeriod, stats }) {
   return (
@@ -24,6 +24,10 @@ function StatCard({ currPeriod, prevPeriod, stats }) {
   )
 }
 
-StatCard.propTypes = {}
+StatCard.propTypes = {
+  currPeriod: PropTypes.string,
+  prevPeriod: PropTypes.string,
+  stats: PropTypes.array,
+}
 
 export default StatCard
