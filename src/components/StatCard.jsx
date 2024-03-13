@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import verifyStorage from '../utils/verifyStorage'
 
 function StatCard({ currPeriod, prevPeriod, stats }) {
   return (
@@ -17,6 +18,15 @@ function StatCard({ currPeriod, prevPeriod, stats }) {
                 {stat.prevStat > 1 && `s`}
               </span>
             </p>
+            {currPeriod === 'daily' && verifyStorage('localStorage') && (
+              <>
+                <p>Yes, there's storage </p>
+                <img
+                  src=''
+                  alt=''
+                />
+              </>
+            )}
           </li>
         ))}
       </ul>

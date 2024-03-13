@@ -28,4 +28,10 @@ function verifyStorage(type) {
   }
 }
 
+// if (verifyStorage("localStorage")) {
+//   console.log('Yippee! We can use localStorage awesomeness')
+// } else {
+//   console.log('Too bad, no localStorage for us')
+// }
+
 export default verifyStorage
