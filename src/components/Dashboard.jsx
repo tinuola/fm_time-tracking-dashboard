@@ -25,6 +25,7 @@ function Dashboard() {
   const [prevPeriod, setPrevPeriod] = useState(periods[period].prev)
 
   // When time period is clicked, update states
+  // UserCard passes up value of 'num' when time period is clicked
   const switchTimePeriod = (num) => {
     setPeriod(num)
     setCurrPeriod(periods[num].curr)
