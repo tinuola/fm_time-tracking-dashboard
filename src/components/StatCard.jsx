@@ -15,9 +15,9 @@ function StatCard({ currPeriod, prevPeriod, stats, getUpdatedDailyValue }) {
   //   }
   // }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  // }
 
   return (
     <>
