@@ -1,26 +1,27 @@
 import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
-import data from '../data/data.json'
+import appData from '../data/data.json'
 
 function Dashboard() {
   // Data
-  const user = data.user
-  const periods = data.range
-  let testStats = data.stats
+  const user = appData.user
+  const periods = appData.range
 
   // States
   const [period, setPeriod] = useState(0)
   const [currPeriod, setCurrPeriod] = useState(periods[period].curr)
   const [prevPeriod, setPrevPeriod] = useState(periods[period].prev)
   let [stats, setStats] = useState(() => getStats(period))
-  // const [dailyStats, setDailyStats] = useState(getStats(period))
 
   // Return array of stats
   function getStats(num) {
+    // string values: 'daily', 'weekly', 'monthly'
+    // to use as computed properties in data objects
     let currPeriod = periods[num].curr
 
-    let dataToUse = data.stats.map((stat) => {
+    // Array of objects: {category name, current time, previous time}
+    let data = appData.stats.map((stat) => {
       return {
         title: stat.title,
         currStat: stat.timeframes[currPeriod].current,
@@ -28,46 +29,35 @@ function Dashboard() {
       }
     })
 
+    /***  Session Storage logic: ***/
+
+    // if daily period and there's nothing in storage,
+    // add data to storage, return data
+
+    // if daily period and data is stored, return stored data;
+    // (stored data should be most up to date version of daily
+    // data, after update by updateDailyValue function
+
+    // else return data
+
     if (num === 0 && !sessionStorage.getItem('dailyStats')) {
-      sessionStorage.setItem('dailyStats', JSON.stringify(dataToUse))
+      sessionStorage.setItem('dailyStats', JSON.stringify(data))
+      return data
     } else if (num === 0 && sessionStorage.getItem('dailyStats')) {
-      let newDailyDataToUse = JSON.parse(sessionStorage.getItem('dailyStats'))
-      return newDailyDataToUse
+      let updatedDailyStats = JSON.parse(sessionStorage.getItem('dailyStats'))
+      return updatedDailyStats
     } else {
-      return dataToUse
+      return data
     }
-
-    // if daily, and there's nothing in storage
-    // send the new object to storage
-    // otherwise get what's in storage
-    // and return that to use
-
-    // return data.stats.map((stat) => {
-    //   return {
-    //     title: stat.title,
-    //     currStat: stat.timeframes[currPeriod].current,
-    //     prevStat: stat.timeframes[currPeriod].previous,
-    //   }
-    // })
   }
 
-  // When time period is clicked, UserCard passes up value of 'num'
-  // The result or num is used to update the states
+  // When period is clicked, UserCard passes up value of 'num'
+  // The result of num is used to update the states
   const switchTimePeriod = (num) => {
     setPeriod(num)
     setCurrPeriod(periods[num].curr)
     setPrevPeriod(periods[num].prev)
-
-    // if (num === 0) {
-    //   console.log('hello')
-    // } else {
-    let newStats = getStats(num)
-    // console.log(newStats)
-    // setStats(() => (stats = [...newStats]))
-    setStats(() => newStats)
-
-    // setStats(() => getStats(num))
-    // }
+    setStats(() => getStats(num))
   }
 
   const updateDailyValue = (e, idx) => {
@@ -77,10 +67,6 @@ function Dashboard() {
     let forms = document.querySelectorAll('form')
 
     if (inputFields[idx].value) {
-      // console.log(
-      //   'Updated value is: ',
-      //   inputFields[idx].value,
-      // )
       let clonedStats = stats
 
       // update clonedStats with new daily value from input field
@@ -89,13 +75,12 @@ function Dashboard() {
       // update storage
       sessionStorage.setItem('dailyStats', JSON.stringify(clonedStats))
 
-      // update stats with clonedStats
+      // update stats state with clonedStats
       setStats(() => (stats = [...clonedStats]))
-      console.log(stats)
-      // setStats(clonedStats)
 
+      // clear/hide form input
       inputFields[idx].value = ''
-      forms[idx].classList.toggle('form')
+      forms[idx].classList.toggle('formElem')
     }
   }
 

@@ -2,22 +2,11 @@ import PropTypes from 'prop-types'
 import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 import verifyStorage from '../utils/verifyStorage'
 
-function StatCard({ currPeriod, prevPeriod, stats, getUpdatedDailyValue }) {
+function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
+  //
   const showEditField = (idx) => {
-    console.log('Display an input field!')
-    document.querySelectorAll('form')[idx].classList.toggle('form')
+    document.querySelectorAll('form')[idx].classList.toggle('formElem')
   }
-
-  // const getUpdatedDailyValue = (idx) => {
-  //   let inputFields = document.querySelectorAll('input')
-  //   if (inputFields[idx].value) {
-  //     console.log('Updated value is: ', inputFields[idx].value)
-  //   }
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  // }
 
   return (
     <>
@@ -36,7 +25,7 @@ function StatCard({ currPeriod, prevPeriod, stats, getUpdatedDailyValue }) {
               </span>
             </p>
             {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
-            {currPeriod === 'daily' && verifyStorage('localStorage') && (
+            {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
               <>
                 <span>Edit </span>
                 <button onClick={() => showEditField(index)}>
@@ -46,17 +35,15 @@ function StatCard({ currPeriod, prevPeriod, stats, getUpdatedDailyValue }) {
                   />
                 </button>
                 <form
-                  // onSubmit={handleSubmit}
                   onSubmit={(e) => getUpdatedDailyValue(e, index)}
-                  className='form'
+                  className='formElem'
                 >
                   <input
                     type='number'
                     name=''
                     id=''
-                    className='input'
+                    className='inputElem'
                   />
-                  {/* <button onClick={() => getUpdatedDailyValue(index)}> */}
                   <button type='submit'>Update</button>
                 </form>
                 <br />
@@ -71,9 +58,10 @@ function StatCard({ currPeriod, prevPeriod, stats, getUpdatedDailyValue }) {
 }
 
 StatCard.propTypes = {
+  stats: PropTypes.array,
   currPeriod: PropTypes.string,
   prevPeriod: PropTypes.string,
-  stats: PropTypes.array,
+  getUpdatedDailyValue: PropTypes.func,
 }
 
 export default StatCard
