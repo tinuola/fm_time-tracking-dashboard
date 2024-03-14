@@ -1,3 +1,4 @@
+import StatForm from './StatForm'
 import PropTypes from 'prop-types'
 import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 import verifyStorage from '../utils/verifyStorage'
@@ -34,7 +35,7 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                     alt=''
                   />
                 </button>
-                <form
+                {/* <form
                   onSubmit={(e) => getUpdatedDailyValue(e, index)}
                   className='formElem'
                 >
@@ -45,7 +46,11 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                     className='inputElem'
                   />
                   <button type='submit'>Update</button>
-                </form>
+                </form> */}
+                <StatForm
+                  index={index}
+                  getUpdatedDailyValue={getUpdatedDailyValue}
+                />
                 <br />
                 <br />
               </>

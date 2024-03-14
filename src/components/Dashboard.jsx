@@ -63,6 +63,7 @@ function Dashboard() {
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
 
+    console.log(idx)
     let inputFields = document.querySelectorAll('input')
     let forms = document.querySelectorAll('form')
 
