@@ -2,6 +2,7 @@ import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
 import appData from '../data/data.json'
+import getStats from '../utils/getStats'
 
 function Dashboard() {
   // Data
@@ -15,6 +16,7 @@ function Dashboard() {
   let [stats, setStats] = useState(() => getStats(period))
 
   // Return array of stats
+  /*
   function getStats(num) {
     // string values: 'daily', 'weekly', 'monthly'
     // to use as computed properties in data objects
@@ -31,25 +33,25 @@ function Dashboard() {
 
     /***  Session Storage logic: ***/
 
-    // if daily period and there's nothing in storage,
-    // add data to storage, return data
+  // if daily period and there's nothing in storage,
+  // add data to storage, return data
 
-    // if daily period and data is stored, return stored data;
-    // (stored data should be most up to date version of daily
-    // data, after update by updateDailyValue function
+  // if daily period and data is stored, return stored data;
+  // (stored data should be most up to date version of daily
+  // data, after update by updateDailyValue function
 
-    // else return data
+  // else return data
 
-    if (num === 0 && !sessionStorage.getItem('dailyStats')) {
-      sessionStorage.setItem('dailyStats', JSON.stringify(data))
-      return data
-    } else if (num === 0 && sessionStorage.getItem('dailyStats')) {
-      let updatedDailyStats = JSON.parse(sessionStorage.getItem('dailyStats'))
-      return updatedDailyStats
-    } else {
-      return data
-    }
-  }
+  //     if (num === 0 && !sessionStorage.getItem('dailyStats')) {
+  //       sessionStorage.setItem('dailyStats', JSON.stringify(data))
+  //       return data
+  //     } else if (num === 0 && sessionStorage.getItem('dailyStats')) {
+  //       let updatedDailyStats = JSON.parse(sessionStorage.getItem('dailyStats'))
+  //       return updatedDailyStats
+  //     } else {
+  //       return data
+  //     }
+  // }
 
   // When period is clicked, UserCard passes up value of 'num'
   // The result of num is used to update the states
