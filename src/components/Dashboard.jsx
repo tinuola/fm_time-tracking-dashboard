@@ -2,6 +2,7 @@ import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
 import appData from '../data/data.json'
+import calculateHours from '../utils/calculateHours'
 import getStats from '../utils/getStats'
 
 function Dashboard() {
@@ -27,30 +28,21 @@ function Dashboard() {
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
 
-    // console.log(idx)
     let inputFields = document.querySelectorAll('input')
+
     let forms = document.querySelectorAll('form')
 
     if (inputFields[idx].value) {
       let clonedStats = stats
 
-      // console.log(typeof inputFields[idx].value)
-      // string
+      let updatedValue = +inputFields[idx].value
 
-      let newValue = +inputFields[idx].value
-
-      let sum = clonedStats.map((item) => item.currStat)
-      console.log('array: ', sum)
-
-      let sum2 = sum.reduce((a, b) => a + b)
-      console.log('arraySum: ', sum2)
-
-      let calc = sum2 - sum[idx] + newValue
-      console.log('new calc: ', calc)
+      let calc = calculateHours(clonedStats, idx, updatedValue)
 
       if (calc <= 24) {
         // update clonedStats with new daily value from input field
-        clonedStats[idx].currStat = +inputFields[idx].value
+        // clonedStats[idx].currStat = +inputFields[idx].value
+        clonedStats[idx].currStat = updatedValue
 
         // update storage
         sessionStorage.setItem('dailyStats', JSON.stringify(clonedStats))
@@ -63,8 +55,10 @@ function Dashboard() {
         forms[idx].classList.toggle('formElem')
         forms[idx].lastElementChild.innerText = ``
       } else {
-        forms[idx].lastElementChild.innerText = `Can't be greater than 24`
-        console.log('Cant be greater than 24')
+        forms[
+          idx
+        ].lastElementChild.innerText = `Total daily hours can't be greater than 24`
+        // console.log('Cant be greater than 24')
       }
     }
   }
