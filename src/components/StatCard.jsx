@@ -28,12 +28,16 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
             {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
             {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
               <>
-                <span>Edit </span>
+                {/* <span>Edit </span> */}
                 <button onClick={() => showEditField(index)}>
                   <img
                     src={iconEllipsis}
                     alt=''
                   />
+                  <span className='sr-only'>
+                    {' '}
+                    Edit Daily {stat.title} Hours
+                  </span>
                 </button>
 
                 <StatForm

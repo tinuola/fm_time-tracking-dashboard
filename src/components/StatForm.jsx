@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 function StatForm({ getUpdatedDailyValue, index }) {
   return (
     <>
@@ -5,10 +7,16 @@ function StatForm({ getUpdatedDailyValue, index }) {
         onSubmit={(e) => getUpdatedDailyValue(e, index)}
         className='formElem'
       >
+        <label
+          htmlFor={`stat-input-${index}`}
+          className='sr-only'
+        >
+          Enter New Daily Hours
+        </label>
         <input
           type='number'
           name=''
-          id=''
+          id={`stat-input-${index}`}
           className='inputElem'
         />
         <button type='submit'>Update</button>
@@ -16,6 +24,11 @@ function StatForm({ getUpdatedDailyValue, index }) {
       </form>
     </>
   )
+}
+
+StatForm.propTypes = {
+  index: PropTypes.number,
+  getUpdatedDailyValue: PropTypes.func,
 }
 
 export default StatForm

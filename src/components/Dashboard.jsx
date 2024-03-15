@@ -32,16 +32,17 @@ function Dashboard() {
 
     let forms = document.querySelectorAll('form')
 
-    if (inputFields[idx].value) {
+    let dailyField = inputFields[idx]
+
+    if (dailyField.value) {
       let clonedStats = stats
 
-      let updatedValue = +inputFields[idx].value
+      let updatedValue = +dailyField.value
 
-      let calc = calculateHours(clonedStats, idx, updatedValue)
+      let totalDailyStatsHours = calculateHours(clonedStats, idx, updatedValue)
 
-      if (calc <= 24) {
-        // update clonedStats with new daily value from input field
-        // clonedStats[idx].currStat = +inputFields[idx].value
+      if (totalDailyStatsHours <= 24) {
+        // update clonedStats with new daily value from input
         clonedStats[idx].currStat = updatedValue
 
         // update storage
@@ -50,15 +51,14 @@ function Dashboard() {
         // update stats state with clonedStats
         setStats(() => (stats = [...clonedStats]))
 
-        // clear/hide form input
-        inputFields[idx].value = ''
+        // clear/hide/reset form input
+        dailyField.value = ''
         forms[idx].classList.toggle('formElem')
         forms[idx].lastElementChild.innerText = ``
       } else {
         forms[
           idx
         ].lastElementChild.innerText = `Total daily hours can't be greater than 24`
-        // console.log('Cant be greater than 24')
       }
     }
   }
