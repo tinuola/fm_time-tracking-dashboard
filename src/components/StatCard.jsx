@@ -35,18 +35,7 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                     alt=''
                   />
                 </button>
-                {/* <form
-                  onSubmit={(e) => getUpdatedDailyValue(e, index)}
-                  className='formElem'
-                >
-                  <input
-                    type='number'
-                    name=''
-                    id=''
-                    className='inputElem'
-                  />
-                  <button type='submit'>Update</button>
-                </form> */}
+
                 <StatForm
                   index={index}
                   getUpdatedDailyValue={getUpdatedDailyValue}

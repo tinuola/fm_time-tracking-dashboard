@@ -12,6 +12,7 @@ function StatForm({ getUpdatedDailyValue, index }) {
           className='inputElem'
         />
         <button type='submit'>Update</button>
+        <p className='error-msg'></p>
       </form>
     </>
   )
