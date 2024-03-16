@@ -1,10 +1,13 @@
 import Dashboard from './components/Dashboard'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div>
-      <h1>Time Tracking Dashboard</h1>
+    <div className='container'>
+      <Navbar />
       <Dashboard />
+      <Footer />
     </div>
   )
 }

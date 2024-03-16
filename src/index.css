@@ -1,3 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  /* Primary */
+  --blue: hsl(246, 80%, 60%);
+  --darkest-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desat-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Accent */
+  --accent-work: hsl(15, 100%, 70%); /* work */
+  --accent-play: hsl(195, 74%, 62%); /* play */
+  --accent-study: hsl(348, 100%, 68%); /* study */
+  --accent-exercise: hsl(145, 58%, 55%); /* exercise */
+  --accent-social: hsl(264, 64%, 52%); /* social */
+  --accent-care: hsl(43, 84%, 65%); /* self care */
+}
+
+body {
+  background-color: var(--darkest-blue);
+  color: var(--white);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+
+/* Content */
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* grid-template-rows: 1fr auto; */
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/**********/
+/* Navbar */
+/**********/
+
+nav {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--accent-social);
+}
+
+nav div {
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/*************/
+/* Dashboard */
+/*************/
+main {
+  /* height: 600px; */
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
+  max-width: 1110px;
+  width: 100%;
+}
+
+/* User Card */
+
+.usercard-wrapper {
+}
+.usercard {
+  width: 255px;
+}
+
+/* Stats Card */
+
+.statscards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* .statscards-wrapper ul {
+  display: flex;
+} */
+
+.statcard {
+  height: 245px;
+  /* width: 30%; */
+  width: 255px;
+  /* background-color: var(--accent-care); */
+}
+
 .formElem {
   display: none;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+footer {
+  background-color: var(--accent-social);
+  width: 100%;
+  padding: 0.75rem 0;
+}
+
+.fm-byline {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.fm-byline,
+.fm-byline a {
+  color: var(--white);
 }

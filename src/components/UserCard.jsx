@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types'
+import userImage from '../assets/images/image-jeremy.png'
 
 function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
   return (
-    <>
-      <h3>UserCard</h3>
+    <div className='usercard'>
+      {/* <h3>UserCard</h3> */}
+      <img
+        src={userImage}
+        alt=''
+      />
       <p>{user}</p>
       <div>
         {periodBtns.map((period, index) => (
@@ -15,7 +20,7 @@ function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
           </button>
         ))}
       </div>
-    </>
+    </div>
   )
 }
 
