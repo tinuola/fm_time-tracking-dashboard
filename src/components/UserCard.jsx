@@ -3,7 +3,7 @@ import userImage from '../assets/images/image-jeremy.png'
 
 function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
   return (
-    <div className='user-card-wrapper'>
+    <>
       {/* <h3>UserCard</h3> */}
       <div className='user-details-wrapper'>
         <img
@@ -26,7 +26,7 @@ function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
           </button>
         ))}
       </div>
-    </div>
+    </>
   )
 }
 

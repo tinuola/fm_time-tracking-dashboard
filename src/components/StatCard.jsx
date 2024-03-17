@@ -19,38 +19,42 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
             key={index}
             className='stat-card'
           >
-            {stat.title}: {stat.currStat} hour
-            {stat.currStat > 1 && `s`}
-            <p>
-              {prevPeriod}:{' '}
-              <span>
-                {stat.prevStat} hour
-                {stat.prevStat > 1 && `s`}
-              </span>
-            </p>
-            {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
-            {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
-              <>
-                {/* <span>Edit </span> */}
-                <button onClick={() => showEditField(index)}>
-                  <img
-                    src={iconEllipsis}
-                    alt=''
-                  />
-                  <span className='sr-only'>
-                    {' '}
-                    Edit Daily {stat.title} Hours
-                  </span>
-                </button>
+            <div className='stat-card-inner-wrapper'>
+              <header className='stat-card-header'>
+                <p>{stat.title}</p>
+                {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
+                {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
+                  <>
+                    {/* <span>Edit </span> */}
+                    <button onClick={() => showEditField(index)}>
+                      <img
+                        src={iconEllipsis}
+                        alt=''
+                      />
+                      <span className='sr-only'>
+                        {' '}
+                        Edit Daily {stat.title} Hours
+                      </span>
+                    </button>
 
-                <StatForm
-                  index={index}
-                  getUpdatedDailyValue={getUpdatedDailyValue}
-                />
-                <br />
-                <br />
-              </>
-            )}
+                    <StatForm
+                      index={index}
+                      getUpdatedDailyValue={getUpdatedDailyValue}
+                    />
+                  </>
+                )}
+              </header>
+              <p className='stat-card-value'>
+                {stat.currStat}hr
+                {stat.currStat > 1 && `s`}
+              </p>
+              <footer className='stat-card-footer'>
+                <p>
+                  {prevPeriod} - {stat.prevStat}hr
+                  {stat.prevStat > 1 && `s`}
+                </p>
+              </footer>
+            </div>
           </li>
         ))}
       </ul>
