@@ -65,18 +65,16 @@ function Dashboard() {
 
   return (
     <main className='dashboard-container'>
-      <div className='usercard-wrapper'>
+      <div className='user-card-block'>
         {/* <h2>Dashboard</h2> */}
         <UserCard
-          // className='usercard'
           user={user}
           periodBtns={periods.map((obj) => obj.curr)}
           handleTimePeriodSelection={switchTimePeriod}
         />
       </div>
-      <div>
+      <div class='stats-cards-block'>
         <StatCard
-          // className='statcard'
           currPeriod={currPeriod}
           prevPeriod={prevPeriod}
           stats={stats}

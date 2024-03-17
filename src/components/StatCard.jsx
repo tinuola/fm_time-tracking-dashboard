@@ -13,11 +13,11 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
     <>
       {/* <h3>StatCard</h3>
       <p>Display {currPeriod} Stats</p> */}
-      <ul className='statscards-wrapper'>
+      <ul className='stats-cards-wrapper'>
         {stats.map((stat, index) => (
           <li
             key={index}
-            className='statcard'
+            className='stat-card'
           >
             {stat.title}: {stat.currStat} hour
             {stat.currStat > 1 && `s`}

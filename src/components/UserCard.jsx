@@ -3,16 +3,22 @@ import userImage from '../assets/images/image-jeremy.png'
 
 function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
   return (
-    <div className='usercard'>
+    <div className='user-card-wrapper'>
       {/* <h3>UserCard</h3> */}
-      <img
-        src={userImage}
-        alt=''
-      />
-      <p>{user}</p>
-      <div>
+      <div className='user-details-wrapper'>
+        <img
+          src={userImage}
+          alt=''
+        />
+        <div className='user-details'>
+          <p>Report for</p>
+          <p>{user}</p>
+        </div>
+      </div>
+      <div className='period-labels-wrapper'>
         {periodBtns.map((period, index) => (
           <button
+            className='period-labels'
             key={period}
             onClick={() => handleTimePeriodSelection(index)}
           >
