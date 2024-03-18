@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
+import appData from '../data/data.json'
 
 function StatForm({ getUpdatedDailyValue, index }) {
+  const titles = appData.stats.map((obj) => obj.title)
   return (
     <>
       <form
@@ -8,17 +10,17 @@ function StatForm({ getUpdatedDailyValue, index }) {
         className='formElem'
       >
         <label
-          htmlFor={`stat-input-${index}`}
+          htmlFor={`stat-input-${titles[index]}`}
           className='sr-only'
         >
-          Enter New Daily Hours
+          {`Enter daily ${titles[index]} hours`}
         </label>
         <div>
           <input
             type='number'
             name=''
-            id={`stat-input-${index}`}
-            placeholder='Enter new daily hours'
+            id={`stat-input-${titles[index]}`}
+            placeholder={`Enter daily ${titles[index]} hours`}
           />
           <button type='submit'>Update</button>
         </div>

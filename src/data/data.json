@@ -7,7 +7,7 @@
   ],
   "stats": [
     {
-      "title": "Work",
+      "title": "work",
       "timeframes": {
         "daily": {
           "current": 5,
@@ -24,7 +24,7 @@
       }
     },
     {
-      "title": "Play",
+      "title": "play",
       "timeframes": {
         "daily": {
           "current": 1,
@@ -41,7 +41,7 @@
       }
     },
     {
-      "title": "Study",
+      "title": "study",
       "timeframes": {
         "daily": {
           "current": 0,
@@ -58,7 +58,7 @@
       }
     },
     {
-      "title": "Exercise",
+      "title": "exercise",
       "timeframes": {
         "daily": {
           "current": 1,
@@ -75,7 +75,7 @@
       }
     },
     {
-      "title": "Social",
+      "title": "social",
       "timeframes": {
         "daily": {
           "current": 1,
@@ -92,7 +92,7 @@
       }
     },
     {
-      "title": "Self Care",
+      "title": "self care",
       "timeframes": {
         "daily": {
           "current": 0,
