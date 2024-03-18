@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
+
+// Data
 import appData from '../data/data.json'
+
+// Helpers
 import calculateHours from '../utils/calculateHours'
 import getStats from '../utils/getStats'
+import applyActiveClass from '../utils/applyActiveClass'
 
 function Dashboard() {
-  // Data
-  const user = appData.user
   const periods = appData.range
 
   // States
@@ -18,20 +21,16 @@ function Dashboard() {
 
   // When period is clicked, UserCard passes up value of 'num'
   // The result of num is used to update the states
-  const switchTimePeriod = (num) => {
-    setPeriod(num)
-    setCurrPeriod(periods[num].curr)
-    setPrevPeriod(periods[num].prev)
-    setStats(() => getStats(num))
+  const switchTimePeriod = (idx) => {
+    setPeriod(idx)
+    setCurrPeriod(periods[idx].curr)
+    setPrevPeriod(periods[idx].prev)
+    setStats(() => getStats(idx))
+    applyActiveClass(idx)
   }
 
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
-
-    // check and remove active from anyother class
-    // add to the one being clicked
-    // if no other class has active, add it
-    // if they do remove and add
 
     let inputFields = document.querySelectorAll('input')
 
@@ -71,14 +70,9 @@ function Dashboard() {
   return (
     <main className='dashboard-container'>
       <div className='user-card-block'>
-        {/* <h2>Dashboard</h2> */}
-        <UserCard
-          user={user}
-          periodBtns={periods.map((obj) => obj.curr)}
-          handleTimePeriodSelection={switchTimePeriod}
-        />
+        <UserCard handleTimePeriodSelection={switchTimePeriod} />
       </div>
-      <div class='stats-cards-block'>
+      <div className='stats-cards-block'>
         <StatCard
           currPeriod={currPeriod}
           prevPeriod={prevPeriod}

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 import userImage from '../assets/images/image-jeremy.png'
+import appData from '../data/data.json'
 
-function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
+function UserCard({ handleTimePeriodSelection }) {
+  const user = appData.user
+  const periods = appData.range.map((obj) => obj.curr)
+
   return (
     <>
-      {/* <h3>UserCard</h3> */}
       <div className='user-details-wrapper'>
         <img
           src={userImage}
@@ -12,17 +15,17 @@ function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
         />
         <div className='user-details'>
           <p>Report for</p>
-          <p>{user}</p>
+          <h2>{user}</h2>
         </div>
       </div>
       <div className='period-labels-wrapper'>
-        {periodBtns.map((period, index) => (
+        {periods.map((period, index) => (
           <button
             className={`period-labels ${index === 0 ? 'active' : ''}`}
             key={period}
             onClick={() => handleTimePeriodSelection(index)}
           >
-            {periodBtns[index]}
+            {periods[index]}
           </button>
         ))}
       </div>

@@ -21,7 +21,7 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
           >
             <div className='stat-card-inner-wrapper'>
               <header className='stat-card-header'>
-                <p>{stat.title}</p>
+                <h3>{stat.title}</h3>
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
                 {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
                   <>
@@ -45,10 +45,10 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                 )}
               </header>
               <div>
-                <p className='stat-card-value'>
+                <h4 className='stat-card-value'>
                   {stat.currStat}hr
                   {stat.currStat > 1 && `s`}
-                </p>
+                </h4>
                 <div className='stat-card-footer'>
                   <p>
                     {prevPeriod} - {stat.prevStat}hr

@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className='fm-byline-row'>
-      <p class='fm-byline'>
+      <p className='fm-byline'>
         Challenge by{' '}
         <a
           href='https://www.frontendmentor.io/challenges/time-tracking-dashboard-UIQ7167Jw/hub'

@@ -4,12 +4,12 @@ function Navbar() {
   return (
     <nav>
       <header>
-        <a
+        {/* <a
           href='#main'
           className='skip'
         >
           Skip to main content
-        </a>
+        </a> */}
         <h1 className='sr-only'>Project Name - A Frontend Mentor Project</h1>
       </header>
       <div>Navbar</div>
