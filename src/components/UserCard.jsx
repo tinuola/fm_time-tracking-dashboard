@@ -18,7 +18,7 @@ function UserCard({ handleTimePeriodSelection, periodBtns, user }) {
       <div className='period-labels-wrapper'>
         {periodBtns.map((period, index) => (
           <button
-            className='period-labels'
+            className={`period-labels ${index === 0 ? 'active' : ''}`}
             key={period}
             onClick={() => handleTimePeriodSelection(index)}
           >

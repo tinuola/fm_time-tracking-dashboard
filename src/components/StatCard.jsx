@@ -44,16 +44,18 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                   </>
                 )}
               </header>
-              <p className='stat-card-value'>
-                {stat.currStat}hr
-                {stat.currStat > 1 && `s`}
-              </p>
-              <footer className='stat-card-footer'>
-                <p>
-                  {prevPeriod} - {stat.prevStat}hr
-                  {stat.prevStat > 1 && `s`}
+              <div>
+                <p className='stat-card-value'>
+                  {stat.currStat}hr
+                  {stat.currStat > 1 && `s`}
                 </p>
-              </footer>
+                <div className='stat-card-footer'>
+                  <p>
+                    {prevPeriod} - {stat.prevStat}hr
+                    {stat.prevStat > 1 && `s`}
+                  </p>
+                </div>
+              </div>
             </div>
           </li>
         ))}

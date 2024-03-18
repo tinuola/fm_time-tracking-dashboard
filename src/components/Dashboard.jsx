@@ -28,6 +28,11 @@ function Dashboard() {
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
 
+    // check and remove active from anyother class
+    // add to the one being clicked
+    // if no other class has active, add it
+    // if they do remove and add
+
     let inputFields = document.querySelectorAll('input')
 
     let forms = document.querySelectorAll('form')
