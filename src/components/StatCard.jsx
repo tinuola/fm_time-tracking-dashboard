@@ -23,7 +23,6 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
                 {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
                   <>
-                    {/* <span>Edit </span> */}
                     <button onClick={() => showEditField(index)}>
                       <img
                         src={iconEllipsis}

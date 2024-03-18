@@ -13,14 +13,15 @@ function StatForm({ getUpdatedDailyValue, index }) {
         >
           Enter New Daily Hours
         </label>
-        <input
-          type='number'
-          name=''
-          id={`stat-input-${index}`}
-          className='inputElem'
-          placeholder='Enter new daily hours'
-        />
-        <button type='submit'>Update</button>
+        <div>
+          <input
+            type='number'
+            name=''
+            id={`stat-input-${index}`}
+            placeholder='Enter new daily hours'
+          />
+          <button type='submit'>Update</button>
+        </div>
         <p className='error-msg'></p>
       </form>
     </>
