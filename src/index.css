@@ -279,6 +279,10 @@ nav div {
   font-weight: 500;
 }
 
+.stat-card-inner-wrapper > div {
+  position: relative;
+}
+
 .stat-card-value {
   font-size: 3.5rem;
   font-weight: 300;
@@ -319,6 +323,96 @@ nav div {
 
 .formElem {
   display: none;
+  position: absolute;
+  top: -8px;
+  /* width: 110%; */
+  height: 120%;
+  background-color: var(--darkest-blue);
+  /* background-color: var(--pale-blue); */
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.formElem.form-visible {
+  display: block;
+}
+
+.formElem input {
+  border: 1px solid var(--pale-blue);
+  background-color: var(--pale-blue);
+  border-radius: 0.25rem;
+  width: 100%;
+  padding-left: 0.75rem;
+}
+
+.formElem input:focus {
+  outline: 2px solid var(--blue);
+}
+
+.formElem button {
+  display: block;
+  border: 0;
+  margin-top: 0.5rem;
+  padding: 0.25rem 1rem;
+  /* border: 2px solid var(--dark-violet); */
+  border-radius: 0.25rem;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 0.75rem;
+  /* opacity: 1; */
+}
+
+/* label {
+  font-size: 0.875rem;
+} */
+
+.error-msg {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  /* color: var(--pale-blue); */
+}
+
+input::-webkit-input-placeholder {
+  /* color: var(--dark-gray-violet); */
+  font-size: 0.75rem;
+  color: var(--darkest-blue);
+}
+
+input::-moz-placeholder {
+  /* color: var(--dark-gray-violet); */
+  font-size: 0.75rem;
+}
+
+input:-ms-input-placeholder {
+  /* color: var(--dark-gray-violet); */
+  font-size: 0.75rem;
+}
+
+input::-ms-input-placeholder {
+  /* color: var(--dark-gray-violet); */
+  font-size: 0.75rem;
+}
+
+input::placeholder {
+  /* color: var(--dark-gray-violet); */
+  font-size: 0.75rem;
+  color: var(--dark-blue);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 /**********/

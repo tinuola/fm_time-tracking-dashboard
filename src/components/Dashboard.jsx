@@ -57,13 +57,15 @@ function Dashboard() {
 
         // clear/hide/reset form input
         dailyField.value = ''
-        forms[idx].classList.toggle('formElem')
+        forms[idx].classList.toggle('form-visible')
         forms[idx].lastElementChild.innerText = ``
       } else {
         forms[
           idx
         ].lastElementChild.innerText = `Total daily hours can't be greater than 24`
       }
+    } else {
+      forms[idx].lastElementChild.innerText = `Enter a number please.`
     }
   }
 

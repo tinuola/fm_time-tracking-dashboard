@@ -6,13 +6,11 @@ import verifyStorage from '../utils/verifyStorage'
 function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
   //
   const showEditField = (idx) => {
-    document.querySelectorAll('form')[idx].classList.toggle('formElem')
+    document.querySelectorAll('form')[idx].classList.toggle('form-visible')
   }
 
   return (
     <>
-      {/* <h3>StatCard</h3>
-      <p>Display {currPeriod} Stats</p> */}
       <ul className='stats-cards-wrapper'>
         {stats.map((stat, index) => (
           <li
@@ -33,18 +31,17 @@ function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
                       />
                       <span className='sr-only'>
                         {' '}
-                        Edit Daily {stat.title} Hours
+                        Edit daily {stat.title} hours
                       </span>
                     </button>
-
-                    <StatForm
-                      index={index}
-                      getUpdatedDailyValue={getUpdatedDailyValue}
-                    />
                   </>
                 )}
               </header>
               <div>
+                <StatForm
+                  index={index}
+                  getUpdatedDailyValue={getUpdatedDailyValue}
+                />
                 <h4 className='stat-card-value'>
                   {stat.currStat}hr
                   {stat.currStat > 1 && `s`}
