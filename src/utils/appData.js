@@ -1,5 +1,21 @@
 import appData from '../data/data.json'
 
+function getUser() {
+  return appData.user
+}
+
+function getFrequency() {
+  const periods = appData.range.map((obj) => obj.curr)
+  return periods
+}
+
+function getRange(idx) {
+  const periods = appData.range
+  const currPeriod = periods[idx].curr
+  const prevPeriod = periods[idx].prev
+  return { currPeriod, prevPeriod }
+}
+
 // Return array of stats
 function getStats(num) {
   const periods = appData.range
@@ -39,4 +55,4 @@ function getStats(num) {
   }
 }
 
-export default getStats
+export { getUser, getFrequency, getRange, getStats }

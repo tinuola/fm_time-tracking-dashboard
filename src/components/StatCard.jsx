@@ -1,10 +1,12 @@
-import StatForm from './StatForm'
 import PropTypes from 'prop-types'
-import iconEllipsis from '../assets/images/icon-ellipsis.svg'
+import StatForm from './StatForm'
+import { getRange } from '../utils/appData'
 import verifyStorage from '../utils/verifyStorage'
+import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 
-function StatCard({ stats, currPeriod, prevPeriod, getUpdatedDailyValue }) {
-  //
+function StatCard({ stats, period, getUpdatedDailyValue }) {
+  const { currPeriod, prevPeriod } = getRange(period)
+
   const showEditField = (idx) => {
     document.querySelectorAll('form')[idx].classList.toggle('form-visible')
   }

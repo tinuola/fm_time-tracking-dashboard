@@ -3,28 +3,21 @@ import StatCard from './StatCard'
 import UserCard from './UserCard'
 
 // Data
-import appData from '../data/data.json'
+import { getStats } from '../utils/appData'
 
 // Helpers
 import calculateHours from '../utils/calculateHours'
-import getStats from '../utils/getStats'
 import applyActiveClass from '../utils/applyActiveClass'
 
 function Dashboard() {
-  const periods = appData.range
-
   // States
   const [period, setPeriod] = useState(0)
-  const [currPeriod, setCurrPeriod] = useState(periods[period].curr)
-  const [prevPeriod, setPrevPeriod] = useState(periods[period].prev)
   let [stats, setStats] = useState(() => getStats(period))
 
   // When period is clicked, UserCard passes up value of 'num'
   // The result of num is used to update the states
   const switchTimePeriod = (idx) => {
     setPeriod(idx)
-    setCurrPeriod(periods[idx].curr)
-    setPrevPeriod(periods[idx].prev)
     setStats(() => getStats(idx))
     applyActiveClass(idx)
   }
@@ -76,8 +69,7 @@ function Dashboard() {
       </div>
       <div className='stats-cards-block'>
         <StatCard
-          currPeriod={currPeriod}
-          prevPeriod={prevPeriod}
+          period={period}
           stats={stats}
           getUpdatedDailyValue={updateDailyValue}
         />

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
+import { getFrequency, getUser } from '../utils/appData'
 import userImage from '../assets/images/image-jeremy.png'
-import appData from '../data/data.json'
 
 function UserCard({ handleTimePeriodSelection }) {
-  const user = appData.user
-  const periods = appData.range.map((obj) => obj.curr)
+  const username = getUser()
+  const periods = getFrequency()
 
   return (
     <>
@@ -15,7 +15,7 @@ function UserCard({ handleTimePeriodSelection }) {
         />
         <div className='user-details'>
           <p>Report for</p>
-          <h2>{user}</h2>
+          <h2>{username}</h2>
         </div>
       </div>
       <div className='period-labels-wrapper'>
