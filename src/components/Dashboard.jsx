@@ -29,6 +29,12 @@ function Dashboard() {
     if (idx !== 0) {
       forms.forEach((form) => form.classList.remove('form-visible'))
     }
+
+    // Remove expand when non-daily frequency is selected
+    let wrappers = document.querySelectorAll('.stat-card-inner-wrapper')
+    if (idx !== 0) {
+      wrappers.forEach((wrapper) => wrapper.classList.remove('expand'))
+    }
   }
 
   const updateDailyValue = (e, idx) => {
@@ -37,6 +43,8 @@ function Dashboard() {
     let inputFields = document.querySelectorAll('input')
 
     let forms = document.querySelectorAll('form')
+
+    let wrappers = document.querySelectorAll('.stat-card-inner-wrapper')
 
     let dailyField = inputFields[idx]
 
@@ -61,6 +69,9 @@ function Dashboard() {
         dailyField.value = ''
         forms[idx].classList.toggle('form-visible')
         forms[idx].lastElementChild.innerText = ``
+        // console.log(wrappers[idx])
+        // console.log('remove expand')
+        wrappers[idx].classList.remove('expand')
       } else {
         forms[
           idx

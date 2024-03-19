@@ -27,7 +27,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   justify-items: center;
   align-items: center;
   min-height: 100vh;
@@ -310,6 +310,7 @@ nav div {
   }
 
   /* For form? */
+  /* .stat-card-inner-wrapper, */
   .stat-card-inner-wrapper.expand {
     height: 200px;
   }

@@ -6,6 +6,12 @@ function StatForm({ getUpdatedDailyValue, index }) {
 
   let errorFields = document.querySelectorAll('.error-msg')
 
+  const clearError = () => {
+    if (errorFields[index]?.innerText) {
+      errorFields[index].innerText = ''
+    }
+  }
+
   return (
     <>
       <form
@@ -24,7 +30,10 @@ function StatForm({ getUpdatedDailyValue, index }) {
             name=''
             id={`stat-input-${categories[index]}`}
             placeholder={`Enter daily ${categories[index]} hours`}
-            onChange={() => (errorFields[index].innerText = '')}
+            // onChange={() =>
+            //   console.log('Remove error msg', errorFields[index].innerText)
+            // }
+            onChange={clearError}
           />
           <button type='submit'>Update</button>
         </div>

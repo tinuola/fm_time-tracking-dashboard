@@ -26,7 +26,7 @@ function getCategories() {
   return categories
 }
 
-// Return array of stats
+// Return array of stats (hours)
 function getStats(num) {
   const periods = appData.range
 
