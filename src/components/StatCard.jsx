@@ -8,7 +8,13 @@ function StatCard({ stats, period, getUpdatedDailyValue }) {
   const { currPeriod, prevPeriod } = getRange(period)
 
   const showEditField = (idx) => {
-    document.querySelectorAll('form')[idx].classList.toggle('form-visible')
+    let forms = document.querySelectorAll('form')
+    forms[idx].classList.toggle('form-visible')
+    forms[idx].lastElementChild.innerText = ``
+
+    let inputFields = document.querySelectorAll('input')
+    let dailyField = inputFields[idx]
+    dailyField.value = ''
   }
 
   return (

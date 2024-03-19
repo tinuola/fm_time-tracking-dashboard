@@ -17,14 +17,17 @@ function Dashboard() {
   // UserCard passes up index of selected frequency
   // Value of index is used to update the states
   const switchTimePeriod = (idx) => {
+    // States
     setPeriod(idx)
     setStats(() => getStats(idx))
+
+    // Set class on selected frequency
     applyActiveClass(idx)
 
+    // Remove form visibility when non-daily frequency is selected
     let forms = document.querySelectorAll('form')
     if (idx !== 0) {
       forms.forEach((form) => form.classList.remove('form-visible'))
-      // forms[idx].classList.toggle('form-visible')
     }
   }
 

@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types'
-import appData from '../data/data.json'
+import { getCategories } from '../utils/appData'
 
 function StatForm({ getUpdatedDailyValue, index }) {
-  const titles = appData.stats.map((obj) => obj.title)
+  const categories = getCategories()
+
+  let errorFields = document.querySelectorAll('.error-msg')
+
   return (
     <>
       <form
@@ -10,17 +13,18 @@ function StatForm({ getUpdatedDailyValue, index }) {
         className='formElem'
       >
         <label
-          htmlFor={`stat-input-${titles[index]}`}
+          htmlFor={`stat-input-${categories[index]}`}
           className='sr-only'
         >
-          {`Enter daily ${titles[index]} hours`}
+          {`Enter daily ${categories[index]} hours`}
         </label>
         <div>
           <input
             type='number'
             name=''
-            id={`stat-input-${titles[index]}`}
-            placeholder={`Enter daily ${titles[index]} hours`}
+            id={`stat-input-${categories[index]}`}
+            placeholder={`Enter daily ${categories[index]} hours`}
+            onChange={() => (errorFields[index].innerText = '')}
           />
           <button type='submit'>Update</button>
         </div>

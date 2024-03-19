@@ -20,6 +20,12 @@ function getRange(idx) {
   return { currPeriod, prevPeriod }
 }
 
+// Return array of categories: ['work', 'play', etc]
+function getCategories() {
+  const categories = appData.stats.map((obj) => obj.title)
+  return categories
+}
+
 // Return array of stats
 function getStats(num) {
   const periods = appData.range
@@ -59,4 +65,4 @@ function getStats(num) {
   }
 }
 
-export { getUser, getFrequency, getRange, getStats }
+export { getUser, getFrequency, getRange, getCategories, getStats }
