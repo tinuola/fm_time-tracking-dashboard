@@ -1,14 +1,18 @@
 import appData from '../data/data.json'
 
+// Return username
 function getUser() {
   return appData.user
 }
 
+// Return array of strings: [daily, weekly, monthly]
 function getFrequency() {
   const periods = appData.range.map((obj) => obj.curr)
   return periods
 }
 
+// Return obj of paired current and past frequencies
+// Example: "daily" and "yesterday"
 function getRange(idx) {
   const periods = appData.range
   const currPeriod = periods[idx].curr

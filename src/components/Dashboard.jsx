@@ -14,12 +14,18 @@ function Dashboard() {
   const [period, setPeriod] = useState(0)
   let [stats, setStats] = useState(() => getStats(period))
 
-  // When period is clicked, UserCard passes up value of 'num'
-  // The result of num is used to update the states
+  // UserCard passes up index of selected frequency
+  // Value of index is used to update the states
   const switchTimePeriod = (idx) => {
     setPeriod(idx)
     setStats(() => getStats(idx))
     applyActiveClass(idx)
+
+    let forms = document.querySelectorAll('form')
+    if (idx !== 0) {
+      forms.forEach((form) => form.classList.remove('form-visible'))
+      // forms[idx].classList.toggle('form-visible')
+    }
   }
 
   const updateDailyValue = (e, idx) => {
