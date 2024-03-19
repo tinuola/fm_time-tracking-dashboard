@@ -310,7 +310,6 @@ nav div {
   }
 
   /* For form? */
-  .stat-card-inner-wrapper,
   .stat-card-inner-wrapper.expand {
     height: 200px;
   }

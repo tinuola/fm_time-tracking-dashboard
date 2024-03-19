@@ -10,6 +10,10 @@ function StatCard({ stats, period, getUpdatedDailyValue }) {
   const showEditField = (idx) => {
     let forms = document.querySelectorAll('form')
     forms[idx].classList.toggle('form-visible')
+
+    let wrap = document.querySelectorAll('.stat-card-inner-wrapper')
+    wrap[idx].classList.toggle('expand')
+
     forms[idx].lastElementChild.innerText = ``
 
     let inputFields = document.querySelectorAll('input')
