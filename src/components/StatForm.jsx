@@ -4,6 +4,7 @@ import { getCategories } from '../utils/appData'
 function StatForm({ getUpdatedDailyValue, index }) {
   const categories = getCategories()
 
+  // const?
   let errorFields = document.querySelectorAll('.error-msg')
 
   const clearError = () => {

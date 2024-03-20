@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  /* Primary */
+  /* opt into user's color scheme preferences */
+  /* color-scheme: light dark; */
+
+  /* Primary Colors */
   --blue: hsl(246, 80%, 60%);
   --darkest-blue: hsl(226, 43%, 10%);
   --dark-blue: hsl(235, 46%, 20%);
@@ -9,7 +12,7 @@
   --pale-blue: hsl(236, 100%, 87%);
   --white: hsl(0, 0%, 100%);
 
-  /* Accent */
+  /* Accent Colors */
   --accent-work: hsl(15, 100%, 70%); /* work */
   --accent-play: hsl(195, 74%, 62%); /* play */
   --accent-study: hsl(348, 100%, 68%); /* study */
@@ -18,9 +21,59 @@
   --accent-care: hsl(43, 84%, 65%); /* self care */
 }
 
+/**********/
+/* Themes */
+/**********/
+
+/* Default */
 body {
-  background-color: var(--darkest-blue);
-  color: var(--white);
+  --body: var(--darkest-blue);
+  --card-bground: var(--dark-blue);
+  --user-card: var(--blue);
+  --primary-text: var(--white);
+  --secondary-text: var(--pale-blue);
+  --inactive-text: var(--desat-blue);
+}
+
+/* Light */
+body.theme-light {
+  --body: white;
+  --card-bground: gray;
+  --user-card: blue;
+  --primary-text: black;
+  --secondary-text: darkgrey;
+  --inactive-text: yellow;
+}
+
+/* Theme for users who prefer light mode at OS level */
+@media (prefers-color-scheme: light) {
+  body {
+    --body: white;
+    --card-bground: gray;
+    --user-card: blue;
+    --primary-text: black;
+    --secondary-text: darkgrey;
+    --inactive-text: yellow;
+  }
+
+  /* Override light mode with dark mode if user decides to swap */
+  body.theme-dark {
+    --body: var(--darkest-blue);
+    --card-bground: var(--dark-blue);
+    --user-card: var(--blue);
+    --primary-text: var(--white);
+    --secondary-text: var(--pale-blue);
+    --inactive-text: var(--desat-blue);
+  }
+}
+
+/**********/
+/* Styles */
+/**********/
+
+body {
+  background-color: var(--body);
+  color: var(--primary-text);
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
 }
@@ -43,12 +96,45 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--accent-social);
+  /* background-color: var(--accent-social); */
 }
 
-nav div {
+/* nav div {
   font-weight: 400;
   text-transform: uppercase;
+} */
+
+.theme-toggle {
+  background-color: var(--desat-blue);
+  width: 65px;
+  border-radius: 1.25rem;
+  padding: 0.375rem 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.light {
+  color: white;
+}
+
+.dark {
+  color: var(--darkest-blue);
+}
+
+.toggle-control {
+  background-color: var(--pale-blue);
+  border: 0;
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 6px;
+}
+
+.toggle {
+  left: 35px;
 }
 
 /*************/
@@ -81,7 +167,7 @@ nav div {
 .user-card-block {
   max-width: 255px;
   width: 100%;
-  background-color: var(--dark-blue);
+  background-color: var(--card-bground);
   border-radius: 1rem;
   align-self: flex-start;
 }
@@ -97,7 +183,7 @@ nav div {
   flex-direction: column;
   height: 355px;
   border-radius: 16px;
-  background-color: var(--blue);
+  background-color: var(--user-card);
   padding-top: 2.25rem;
   padding-left: 2rem;
 }
@@ -113,7 +199,7 @@ nav div {
 }
 
 .user-details p {
-  color: var(--pale-blue);
+  color: var(--secondary-text);
 }
 
 .user-details h2 {
@@ -175,7 +261,7 @@ nav div {
 .period-labels {
   background-color: transparent;
   border: none;
-  color: var(--desat-blue);
+  color: var(--inactive-text);
   font-size: 1.125rem;
   text-transform: capitalize;
   cursor: pointer;
@@ -251,7 +337,7 @@ nav div {
 }
 
 .stat-card-inner-wrapper {
-  background-color: var(--dark-blue);
+  background-color: var(--card-bground);
   padding: 2rem;
   border-radius: 1rem;
   overflow: hidden;
@@ -291,7 +377,7 @@ nav div {
 
 .stat-card-footer p {
   text-transform: capitalize;
-  color: var(--pale-blue);
+  color: var(--secondary-text);
   font-size: 15px;
   letter-spacing: 0.5px;
 }
@@ -333,7 +419,7 @@ nav div {
   position: absolute;
   width: 100%;
   height: 120%;
-  background-color: var(--darkest-blue);
+  background-color: var(--body);
   border-radius: 0.5rem;
   padding: 0.75rem;
   z-index: 1;
@@ -344,8 +430,8 @@ nav div {
 }
 
 .formElem input {
-  border: 1px solid var(--pale-blue);
-  background-color: var(--pale-blue);
+  border: 1px solid var(--secondary-text);
+  background-color: var(--secondary-text);
   border-radius: 0.25rem;
   width: 100%;
   max-width: 185px;
@@ -442,5 +528,5 @@ input[type='number'] {
 
 .fm-byline,
 .fm-byline a {
-  color: var(--white);
+  color: var(--primary-text);
 }

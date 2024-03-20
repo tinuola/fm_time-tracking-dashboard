@@ -7,6 +7,7 @@ import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 function StatCard({ stats, period, getUpdatedDailyValue }) {
   const { currPeriod, prevPeriod } = getRange(period)
 
+  // Move to util
   const showEditField = (idx) => {
     let forms = document.querySelectorAll('form')
     let wrap = document.querySelectorAll('.stat-card-inner-wrapper')

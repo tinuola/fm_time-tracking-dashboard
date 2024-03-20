@@ -15,7 +15,7 @@ function Dashboard() {
   let [stats, setStats] = useState(() => getStats(period))
 
   // UserCard passes up index of selected frequency
-  // Value of index is used to update the states
+  // Value of index is used to update states
   const switchTimePeriod = (idx) => {
     // States
     setPeriod(idx)
@@ -24,6 +24,7 @@ function Dashboard() {
     // Set class on selected frequency
     applyActiveClass(idx)
 
+    // create as helpers?
     // Remove form visibility when non-daily frequency is selected
     let forms = document.querySelectorAll('form')
     if (idx !== 0) {
@@ -37,9 +38,11 @@ function Dashboard() {
     }
   }
 
+  // Updates setStats when daily frequency is selected
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
 
+    // create getUIElements helper?
     let inputFields = document.querySelectorAll('input')
 
     let forms = document.querySelectorAll('form')
