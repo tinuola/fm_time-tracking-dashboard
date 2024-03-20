@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  /* opt into user's color scheme preferences */
-  /* color-scheme: light dark; */
-
-  /* Primary Colors */
+  /* Dark Theme */
   --blue: hsl(246, 80%, 60%);
   --darkest-blue: hsl(226, 43%, 10%);
   --dark-blue: hsl(235, 46%, 20%);
   --desat-blue: hsl(235, 45%, 61%);
   --pale-blue: hsl(236, 100%, 87%);
+  --hover-blue: hsl(236, 41%, 34%);
+
+  /* Light Theme */
+  --light-gray: hsl(240deg 15.65% 89.32%);
+  --lightest-gray: hsl(0deg 0% 96.22%);
+  --medium-gray: hsl(0deg 0.42% 49.53%);
+
+  /* Neutrals */
   --white: hsl(0, 0%, 100%);
 
   /* Accent Colors */
@@ -24,36 +29,46 @@
 /**********/
 /* Themes */
 /**********/
+/* https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class */
 
-/* Default */
+/* Default Dark Theme */
 body {
   --body: var(--darkest-blue);
   --card-bground: var(--dark-blue);
   --user-card: var(--blue);
+  --card-hover: var(--hover-blue);
   --primary-text: var(--white);
   --secondary-text: var(--pale-blue);
+  --active-text: var(--white);
   --inactive-text: var(--desat-blue);
+  --hover-text: var(--white);
 }
 
-/* Light */
+/* Light Theme */
 body.theme-light {
-  --body: white;
-  --card-bground: gray;
-  --user-card: blue;
-  --primary-text: black;
-  --secondary-text: darkgrey;
-  --inactive-text: yellow;
+  --body: var(--white);
+  --card-bground: var(--lightest-gray);
+  --user-card: var(--light-gray);
+  --card-hover: var(--light-gray);
+  --primary-text: var(--darkest-blue);
+  --secondary-text: var(--medium-gray);
+  --active-text: var(--darkest-blue);
+  --inactive-text: var(--medium-gray);
+  --hover-text: var(--darkest-blue);
 }
 
-/* Theme for users who prefer light mode at OS level */
+/* Setting for users who prefer light mode at OS level */
 @media (prefers-color-scheme: light) {
   body {
-    --body: white;
-    --card-bground: gray;
-    --user-card: blue;
-    --primary-text: black;
-    --secondary-text: darkgrey;
-    --inactive-text: yellow;
+    --body: var(--white);
+    --card-bground: var(--lightest-gray);
+    --user-card: var(--light-gray);
+    --card-hover: var(--light-gray);
+    --primary-text: var(--darkest-blue);
+    --secondary-text: var(--medium-gray);
+    --active-text: var(--darkest-blue);
+    --inactive-text: var(--medium-gray);
+    --hover-text: var(--darkest-blue);
   }
 
   /* Override light mode with dark mode if user decides to swap */
@@ -61,15 +76,18 @@ body.theme-light {
     --body: var(--darkest-blue);
     --card-bground: var(--dark-blue);
     --user-card: var(--blue);
+    --card-hover: var(--hover-blue);
     --primary-text: var(--white);
     --secondary-text: var(--pale-blue);
+    --active-text: var(--white);
     --inactive-text: var(--desat-blue);
+    --hover-text: var(--white);
   }
 }
 
-/**********/
-/* Styles */
-/**********/
+/**************/
+/* App Styles */
+/**************/
 
 body {
   background-color: var(--body);
@@ -80,7 +98,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr auto;
   justify-items: center;
   align-items: center;
   min-height: 100vh;
@@ -96,13 +114,15 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: var(--accent-social); */
 }
 
-/* nav div {
-  font-weight: 400;
-  text-transform: uppercase;
-} */
+.toggle-wrapper {
+  max-width: 1150px;
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
 
 .theme-toggle {
   background-color: var(--desat-blue);
@@ -269,11 +289,11 @@ nav {
 }
 
 .period-labels:hover {
-  color: var(--white);
+  color: var(--hover-text);
 }
 
 .period-labels.active {
-  color: var(--white);
+  color: var(--active-text);
 }
 
 /* Stats Card */
@@ -345,7 +365,7 @@ nav {
 }
 
 .stat-card-inner-wrapper:hover {
-  background-color: hsl(236, 41%, 34%);
+  background-color: var(--card-hover);
 }
 
 .stat-card-header {
@@ -395,8 +415,7 @@ nav {
     margin-bottom: 0;
   }
 
-  /* For form? */
-  /* .stat-card-inner-wrapper, */
+  /* For form */
   .stat-card-inner-wrapper.expand {
     height: 200px;
   }
@@ -465,10 +484,6 @@ nav {
   .formElem {
     top: 8px;
     height: unset;
-  }
-
-  .formElem > div {
-    /* display: flex; */
   }
 }
 
