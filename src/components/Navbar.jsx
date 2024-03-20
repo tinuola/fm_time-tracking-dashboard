@@ -9,6 +9,23 @@ function Navbar() {
   const handleThemeSwitch = (e) => {
     e.target.classList.toggle('toggle')
 
+    const themeToggle = document.querySelector('.theme-toggle')
+    themeToggle.classList.toggle('dark-bg')
+
+    const element = document.querySelectorAll('.stat-card')
+
+    // Hack for pseudo element
+    element.forEach((ele) => {
+      let val = ele.style.getPropertyValue('--opacity')
+      if (val === '' || val === '1') {
+        ele.style.setProperty('--opacity', 0.75)
+      } else {
+        ele.style.setProperty('--opacity', 1)
+      }
+
+      // console.log(ele.style.getPropertyValue('--opacity'))
+    })
+
     // If the OS is set to light mode...
     if (prefersLightScheme.matches) {
       // ...then apply the dark theme to override those styles

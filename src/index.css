@@ -42,6 +42,10 @@ body {
   --active-text: var(--white);
   --inactive-text: var(--desat-blue);
   --hover-text: var(--white);
+  --form-focus: var(--blue);
+  --btn-bground: var(--blue);
+  --form-input: var(--pale-blue);
+  --form-border: var(--pale-blue);
 }
 
 /* Light Theme */
@@ -55,6 +59,10 @@ body.theme-light {
   --active-text: var(--darkest-blue);
   --inactive-text: var(--medium-gray);
   --hover-text: var(--darkest-blue);
+  --form-focus: var(--medium-gray);
+  --btn-bground: var(--dark-blue);
+  --form-input: var(--lightest-gray);
+  --form-border: var(--light-gray);
 }
 
 /* Setting for users who prefer light mode at OS level */
@@ -69,6 +77,10 @@ body.theme-light {
     --active-text: var(--darkest-blue);
     --inactive-text: var(--medium-gray);
     --hover-text: var(--darkest-blue);
+    --form-focus: var(--medium-gray);
+    --btn-bground: var(--dark-blue);
+    --form-input: var(--lightest-gray);
+    --form-border: var(--light-gray);
   }
 
   /* Override light mode with dark mode if user decides to swap */
@@ -133,8 +145,13 @@ nav {
   justify-content: space-between;
   position: relative;
 }
+
+.theme-toggle.dark-bg {
+  background-color: var(--medium-gray);
+}
+
 .light {
-  color: white;
+  color: var(--white);
 }
 
 .dark {
@@ -155,6 +172,7 @@ nav {
 
 .toggle {
   left: 35px;
+  background-color: var(--white);
 }
 
 /*************/
@@ -324,6 +342,7 @@ nav {
   border-top-right-radius: 1rem;
   background-repeat: no-repeat;
   background-position: 90% 54%;
+  opacity: var(--opacity, 1);
 }
 
 .stat-card:nth-of-type(1):before {
@@ -449,8 +468,8 @@ nav {
 }
 
 .formElem input {
-  border: 1px solid var(--secondary-text);
-  background-color: var(--secondary-text);
+  border: 1px solid var(--form-border);
+  background-color: var(--form-input);
   border-radius: 0.25rem;
   width: 100%;
   max-width: 185px;
@@ -460,7 +479,7 @@ nav {
 }
 
 .formElem input:focus {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--form-focus);
 }
 
 .formElem button {
@@ -469,9 +488,10 @@ nav {
   margin-top: 0.5rem;
   padding: 0.25rem 1rem;
   border-radius: 0.25rem;
-  background-color: var(--blue);
+  background-color: var(--btn-bground);
   color: var(--white);
   font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .error-msg {
@@ -488,27 +508,27 @@ nav {
 }
 
 input::-webkit-input-placeholder {
-  font-size: 0.75rem;
+  font-size: 0.825rem;
   color: var(--dark-blue);
 }
 
 input::-moz-placeholder {
-  font-size: 0.75rem;
+  font-size: 0.825rem;
   color: var(--dark-blue);
 }
 
 input:-ms-input-placeholder {
-  font-size: 0.75rem;
+  font-size: 0.825rem;
   color: var(--dark-blue);
 }
 
 input::-ms-input-placeholder {
-  font-size: 0.75rem;
+  font-size: 0.825rem;
   color: var(--dark-blue);
 }
 
 input::placeholder {
-  font-size: 0.75rem;
+  font-size: 0.825rem;
   color: var(--dark-blue);
 }
 
