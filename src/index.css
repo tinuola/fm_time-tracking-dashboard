@@ -11,11 +11,13 @@
 
   /* Light Theme */
   --light-gray: hsl(240deg 15.65% 89.32%);
-  --lightest-gray: hsl(0deg 0% 96.22%);
+  --lightest-gray: hsl(0deg 0% 97%);
   --medium-gray: hsl(0deg 0.42% 49.53%);
+  --gray: hsl(0, 1%, 75%);
 
   /* Neutrals */
   --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
 
   /* Accent Colors */
   --accent-work: hsl(15, 100%, 70%); /* work */
@@ -50,7 +52,7 @@ body {
 
 /* Light Theme */
 body.theme-light {
-  --body: var(--white);
+  --body: var(--off-white);
   --card-bground: var(--lightest-gray);
   --user-card: var(--light-gray);
   --card-hover: var(--light-gray);
@@ -62,13 +64,13 @@ body.theme-light {
   --form-focus: var(--medium-gray);
   --btn-bground: var(--dark-blue);
   --form-input: var(--lightest-gray);
-  --form-border: var(--light-gray);
+  --form-border: var(--gray);
 }
 
 /* Setting for users who prefer light mode at OS level */
 @media (prefers-color-scheme: light) {
   body {
-    --body: var(--white);
+    --body: var(--off-white);
     --card-bground: var(--lightest-gray);
     --user-card: var(--light-gray);
     --card-hover: var(--light-gray);
@@ -80,7 +82,7 @@ body.theme-light {
     --form-focus: var(--medium-gray);
     --btn-bground: var(--dark-blue);
     --form-input: var(--lightest-gray);
-    --form-border: var(--light-gray);
+    --form-border: var(--gray);
   }
 
   /* Override light mode with dark mode if user decides to swap */
@@ -131,7 +133,7 @@ nav {
 .toggle-wrapper {
   max-width: 1150px;
   width: 100%;
-  padding: 0 1rem;
+  padding: 1rem 1rem 0 1rem;
   display: flex;
   justify-content: flex-end;
 }
