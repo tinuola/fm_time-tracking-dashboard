@@ -1,0 +1,99 @@
+:root {
+  /* Dark Theme */
+  --blue: hsl(246, 80%, 60%);
+  --darkest-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desat-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+  --hover-blue: hsl(236, 41%, 34%);
+
+  /* Light Theme */
+  --light-gray: hsl(240deg 15.65% 89.32%);
+  --lightest-gray: hsl(0deg 0% 97%);
+  --medium-gray: hsl(0deg 0.42% 49.53%);
+  --gray: hsl(0, 1%, 75%);
+
+  /* Neutrals */
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+
+  /* Accent Colors */
+  --accent-work: hsl(15, 100%, 70%); /* work */
+  --accent-play: hsl(195, 74%, 62%); /* play */
+  --accent-study: hsl(348, 100%, 68%); /* study */
+  --accent-exercise: hsl(145, 58%, 55%); /* exercise */
+  --accent-social: hsl(264, 64%, 52%); /* social */
+  --accent-care: hsl(43, 84%, 65%); /* self care */
+}
+
+/**********/
+/* Themes */
+/**********/
+
+/* https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class */
+
+/* Default Dark Theme */
+body {
+  --body: var(--darkest-blue);
+  --card-bground: var(--dark-blue);
+  --user-card: var(--blue);
+  --card-hover: var(--hover-blue);
+  --primary-text: var(--white);
+  --secondary-text: var(--pale-blue);
+  --active-text: var(--white);
+  --inactive-text: var(--desat-blue);
+  --hover-text: var(--white);
+  --form-focus: var(--blue);
+  --btn-bground: var(--blue);
+  --form-input: var(--pale-blue);
+  --form-border: var(--pale-blue);
+}
+
+/* Light Theme */
+body.theme-light {
+  --body: var(--off-white);
+  --card-bground: var(--lightest-gray);
+  --user-card: var(--light-gray);
+  --card-hover: var(--light-gray);
+  --primary-text: var(--darkest-blue);
+  --secondary-text: var(--medium-gray);
+  --active-text: var(--darkest-blue);
+  --inactive-text: var(--medium-gray);
+  --hover-text: var(--darkest-blue);
+  --form-focus: var(--medium-gray);
+  --btn-bground: var(--dark-blue);
+  --form-input: var(--lightest-gray);
+  --form-border: var(--gray);
+}
+
+/* Setting for users who prefer light mode at OS level */
+@media (prefers-color-scheme: light) {
+  body {
+    --body: var(--off-white);
+    --card-bground: var(--lightest-gray);
+    --user-card: var(--light-gray);
+    --card-hover: var(--light-gray);
+    --primary-text: var(--darkest-blue);
+    --secondary-text: var(--medium-gray);
+    --active-text: var(--darkest-blue);
+    --inactive-text: var(--medium-gray);
+    --hover-text: var(--darkest-blue);
+    --form-focus: var(--medium-gray);
+    --btn-bground: var(--dark-blue);
+    --form-input: var(--lightest-gray);
+    --form-border: var(--gray);
+  }
+
+  /* Override light mode with dark mode if user decides to swap */
+  body.theme-dark {
+    --body: var(--darkest-blue);
+    --card-bground: var(--dark-blue);
+    --user-card: var(--blue);
+    --card-hover: var(--hover-blue);
+    --primary-text: var(--white);
+    --secondary-text: var(--pale-blue);
+    --active-text: var(--white);
+    --inactive-text: var(--desat-blue);
+    --hover-text: var(--white);
+  }
+}
