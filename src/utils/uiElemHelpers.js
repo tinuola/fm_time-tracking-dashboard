@@ -26,45 +26,45 @@ function changePseudoElementOpacity() {
 }
 
 // Display form to update Daily stats values
-function showEditForm(idx) {
+function showEditForm(categoryIdx) {
   const { inputFields, forms, wrappers } = getUIElements()
 
-  forms[idx].classList.toggle('form-visible')
+  forms[categoryIdx].classList.toggle('form-visible')
 
-  wrappers[idx].classList.toggle('expand')
+  wrappers[categoryIdx].classList.toggle('expand')
 
-  forms[idx].lastElementChild.innerText = ``
+  forms[categoryIdx].lastElementChild.innerText = ``
 
-  let dailyField = inputFields[idx]
+  let dailyField = inputFields[categoryIdx]
 
   dailyField.value = ''
 }
 
 // Remove form visibility if frequency is not 'Daily'
-function toggleFormVisibility(idx) {
+function toggleFormVisibility(freqIdx) {
   const { forms } = getUIElements()
-  if (idx !== 0) {
+  if (freqIdx !== 0) {
     forms.forEach((form) => form.classList.remove('form-visible'))
   }
 }
 
 // Remove expand class on form if frequency is not 'Daily'
-function toggleFormExpand(idx) {
+function toggleFormExpand(freqIdx) {
   const { wrappers } = getUIElements()
-  if (idx !== 0) {
+  if (freqIdx !== 0) {
     wrappers.forEach((wrapper) => wrapper.classList.remove('expand'))
   }
 }
 
 // Apply bolded style to selected frequency
-function applyActiveClass(num) {
+function applyActiveClass(freqIdx) {
   const { labels } = getUIElements()
 
   labels.forEach((label, idx) => {
     let hasActive = label.classList.contains('active')
-    if (idx !== num && hasActive) {
+    if (idx !== freqIdx && hasActive) {
       label.classList.remove('active')
-    } else if (idx === num && !hasActive) {
+    } else if (idx === freqIdx && !hasActive) {
       label.classList.add('active')
     }
   })

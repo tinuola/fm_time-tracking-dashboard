@@ -21,41 +21,45 @@ function Dashboard() {
 
   // UserCard passes index of selected frequency
   // Value of index is used to update states
-  const switchFrequency = (idx) => {
+  const switchFrequency = (freqIdx) => {
     // States
-    setFrequency(idx)
-    setStats(() => getStats(idx))
+    setFrequency(freqIdx)
+    setStats(() => getStats(freqIdx))
 
     // UI Behaviors:
 
     // Emphasize selected frequency
-    applyActiveClass(idx)
+    applyActiveClass(freqIdx)
 
     // Remove form when Daily is not selected
-    toggleFormVisibility(idx)
+    toggleFormVisibility(freqIdx)
 
     // Remove form expand class when Daily is not selected
-    toggleFormExpand(idx)
+    toggleFormExpand(freqIdx)
   }
 
   // Updates setStats when daily frequency is selected
-  const updateDailyValue = (e, idx) => {
+  const updateDailyValue = (e, categoryIdx) => {
     e.preventDefault()
 
     const { inputFields, forms, wrappers } = getUIElements()
 
-    let dailyField = inputFields[idx]
+    let dailyField = inputFields[categoryIdx]
 
     if (dailyField.value) {
       let clonedStats = stats
 
       let updatedValue = +dailyField.value
 
-      let totalDailyStatsHours = calculateHours(clonedStats, idx, updatedValue)
+      let totalDailyStatsHours = calculateHours(
+        clonedStats,
+        categoryIdx,
+        updatedValue
+      )
 
       if (totalDailyStatsHours <= 24) {
         // update clonedStats with new daily value from input
-        clonedStats[idx].currStat = updatedValue
+        clonedStats[categoryIdx].currStat = updatedValue
 
         // update storage
         sessionStorage.setItem('dailyStats', JSON.stringify(clonedStats))
@@ -65,16 +69,16 @@ function Dashboard() {
 
         // clear/hide/reset form input
         dailyField.value = ''
-        forms[idx].classList.toggle('form-visible')
-        forms[idx].lastElementChild.innerText = ``
-        wrappers[idx].classList.remove('expand')
+        forms[categoryIdx].classList.toggle('form-visible')
+        forms[categoryIdx].lastElementChild.innerText = ``
+        wrappers[categoryIdx].classList.remove('expand')
       } else {
         forms[
-          idx
+          categoryIdx
         ].lastElementChild.innerText = `Total daily hours can't be greater than 24`
       }
     } else {
-      forms[idx].lastElementChild.innerText = `Enter a number please.`
+      forms[categoryIdx].lastElementChild.innerText = `Enter a number please.`
     }
   }
 
