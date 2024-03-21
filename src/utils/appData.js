@@ -1,24 +1,12 @@
 import appData from '../data/data.json'
 
-// Return username
 function getUser() {
   return appData.user
 }
 
-// Return array of strings: [daily, weekly, monthly]
 function getFrequency() {
-  const frequencies = appData.periods.map((obj) => obj.curr)
-  return frequencies
+  return ['daily', 'weekly', 'monthly']
 }
-
-// Return obj of paired current and past frequencies
-// Example: "daily" and "yesterday"
-// function getRange(idx) {
-//   const periods = appData.periods
-//   const currPeriod = periods[idx].curr
-//   const prevPeriod = periods[idx].prev
-//   return { currPeriod, prevPeriod }
-// }
 
 // Return array of categories: ['work', 'play', etc]
 function getCategories() {
@@ -65,4 +53,4 @@ function getStats(num) {
   }
 }
 
-export { getUser, getFrequency, /*getRange,*/ getCategories, getStats }
+export { getUser, getFrequency, getCategories, getStats }

@@ -1,35 +1,14 @@
 import PropTypes from 'prop-types'
 
-// Components, Data, Assets
+// Components, Assets
 import StatForm from './StatForm'
-// import { getRange } from '../utils/appData'
 import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 
 // Helpers
+import { showEditForm } from '../utils/uiElemHelpers'
 import verifyStorage from '../utils/verifyStorage'
 
 function StatCard({ stats, frequency, getUpdatedDailyValue }) {
-  // const { currPeriod, prevPeriod } = getRange(frequency)
-
-  // Move to util
-  const showEditField = (idx) => {
-    let forms = document.querySelectorAll('form')
-    let wrap = document.querySelectorAll('.stat-card-inner-wrapper')
-
-    // test
-    // let errorFields = document.querySelectorAll('.error-msg')
-    // console.log(wrap[idx], forms[idx], errorFields[idx])
-
-    forms[idx].classList.toggle('form-visible')
-    wrap[idx].classList.toggle('expand')
-
-    forms[idx].lastElementChild.innerText = ``
-
-    let inputFields = document.querySelectorAll('input')
-    let dailyField = inputFields[idx]
-    dailyField.value = ''
-  }
-
   return (
     <>
       <ul className='stats-cards-wrapper'>
@@ -44,7 +23,7 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
                 {frequency === 0 && verifyStorage('sessionStorage') && (
                   <>
-                    <button onClick={() => showEditField(index)}>
+                    <button onClick={() => showEditForm(index)}>
                       <img
                         src={iconEllipsis}
                         alt=''
@@ -75,8 +54,6 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
                       : `yesterday`}{' '}
                     - {stat.prevStat}hr
                     {stat.prevStat > 1 && `s`}
-                    {/* {prevPeriod} - {stat.prevStat}hr
-                    {stat.prevStat > 1 && `s`} */}
                   </p>
                 </div>
               </div>
@@ -90,8 +67,7 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
 
 StatCard.propTypes = {
   stats: PropTypes.array,
-  // currPeriod: PropTypes.string,
-  // prevPeriod: PropTypes.string,
+  frequency: PropTypes.number,
   getUpdatedDailyValue: PropTypes.func,
 }
 
