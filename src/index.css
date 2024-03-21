@@ -31,6 +31,8 @@ nav {
   align-items: center;
 }
 
+/* Theme Switcher */
+
 .toggle-wrapper {
   max-width: 1150px;
   width: 100%;
@@ -39,7 +41,7 @@ nav {
   justify-content: flex-end;
 }
 
-.theme-toggle {
+.toggle {
   background-color: var(--desat-blue);
   width: 65px;
   border-radius: 1.25rem;
@@ -49,19 +51,19 @@ nav {
   position: relative;
 }
 
-.theme-toggle.dark-bg {
+.toggle.toggle-bg {
   background-color: var(--medium-gray);
 }
 
-.light {
+.toggle-icon-light {
   color: var(--white);
 }
 
-.dark {
+.toggle-icon-dark {
   color: var(--darkest-blue);
 }
 
-.toggle-control {
+.toggle-btn {
   background-color: var(--pale-blue);
   border: 0;
   width: 20px;
@@ -73,7 +75,7 @@ nav {
   left: 6px;
 }
 
-.toggle {
+.toggle-action {
   left: 35px;
   background-color: var(--white);
 }

@@ -18,12 +18,12 @@
   --off-white: hsl(0, 0%, 94%);
 
   /* Accent Colors */
-  --accent-work: hsl(15, 100%, 70%); /* work */
-  --accent-play: hsl(195, 74%, 62%); /* play */
-  --accent-study: hsl(348, 100%, 68%); /* study */
-  --accent-exercise: hsl(145, 58%, 55%); /* exercise */
-  --accent-social: hsl(264, 64%, 52%); /* social */
-  --accent-care: hsl(43, 84%, 65%); /* self care */
+  --accent-work: hsl(15, 100%, 70%);
+  --accent-play: hsl(195, 74%, 62%);
+  --accent-study: hsl(348, 100%, 68%);
+  --accent-exercise: hsl(145, 58%, 55%);
+  --accent-social: hsl(264, 64%, 52%);
+  --accent-care: hsl(43, 84%, 65%);
 }
 
 /**********/
@@ -95,5 +95,9 @@ body.theme-light {
     --active-text: var(--white);
     --inactive-text: var(--desat-blue);
     --hover-text: var(--white);
+    --form-focus: var(--blue);
+    --btn-bground: var(--blue);
+    --form-input: var(--pale-blue);
+    --form-border: var(--pale-blue);
   }
 }

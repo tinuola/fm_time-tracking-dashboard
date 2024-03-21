@@ -1,20 +1,22 @@
 import { FaMoon, FaSun } from 'react-icons/fa'
 
 function Navbar() {
-  // Theme switching:
+  // Theme Switching:
   // https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class
 
   const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)')
 
   const handleThemeSwitch = (e) => {
-    e.target.classList.toggle('toggle')
+    e.target.classList.toggle('toggle-action')
 
-    const themeToggle = document.querySelector('.theme-toggle')
-    themeToggle.classList.toggle('dark-bg')
+    const themeToggle = document.querySelector('.toggle')
+
+    themeToggle.classList.toggle('toggle-bg')
+
+    // Hack for pseudo element
 
     const element = document.querySelectorAll('.stat-card')
 
-    // Hack for pseudo element
     element.forEach((ele) => {
       let val = ele.style.getPropertyValue('--opacity')
       if (val === '' || val === '1') {
@@ -49,12 +51,12 @@ function Navbar() {
         <h1 className='sr-only'>Project Name - A Frontend Mentor Project</h1>
       </header>
       <div className='toggle-wrapper'>
-        <div className='theme-toggle'>
-          <FaSun className='light' />
-          <FaMoon className='dark' />
+        <div className='toggle'>
+          <FaSun className='toggle-icon-light' />
+          <FaMoon className='toggle-icon-dark' />
           <button
             onClick={handleThemeSwitch}
-            className='toggle-control'
+            className='toggle-btn'
           ></button>
         </div>
       </div>
