@@ -1,4 +1,5 @@
 import { FaMoon, FaSun } from 'react-icons/fa'
+import { changePseudoElementOpacity } from '../utils/uiElemHelpers'
 
 function Navbar() {
   // Theme Switching:
@@ -13,28 +14,16 @@ function Navbar() {
 
     themeToggle.classList.toggle('toggle-bg')
 
-    // Hack for pseudo element
+    // Change opacity of accented/colorful headers
+    changePseudoElementOpacity()
 
-    const element = document.querySelectorAll('.stat-card')
-
-    element.forEach((ele) => {
-      let val = ele.style.getPropertyValue('--opacity')
-      if (val === '' || val === '1') {
-        ele.style.setProperty('--opacity', 0.75)
-      } else {
-        ele.style.setProperty('--opacity', 1)
-      }
-
-      // console.log(ele.style.getPropertyValue('--opacity'))
-    })
-
-    // If the OS is set to light mode...
+    // If OS is set to light mode...
     if (prefersLightScheme.matches) {
-      // ...then apply the dark theme to override those styles
+      // ...apply dark theme to override light styles
       document.body.classList.toggle('theme-dark')
       // Otherwise...
     } else {
-      // ...apply the light theme to override default (dark) styles
+      // ...apply light theme to override dark styles
       document.body.classList.toggle('theme-light')
     }
   }
