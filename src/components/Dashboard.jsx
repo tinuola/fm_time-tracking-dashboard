@@ -7,35 +7,34 @@ import { getStats } from '../utils/appData'
 
 // Helpers
 import calculateHours from '../utils/calculateHours'
-import applyActiveClass from '../utils/applyActiveClass'
+import {
+  applyActiveClass,
+  toggleFormExpand,
+  toggleFormVisibility,
+} from '../utils/uiElemHelpers'
 
 function Dashboard() {
   // States
   const [frequency, setFrequency] = useState(0)
   let [stats, setStats] = useState(() => getStats(frequency))
 
-  // UserCard passes up index of selected frequency
+  // UserCard passes index of selected frequency
   // Value of index is used to update states
   const switchFrequency = (idx) => {
     // States
     setFrequency(idx)
     setStats(() => getStats(idx))
 
-    // Set class on selected frequency
+    // UI Behaviors:
+
+    // Emphasize selected frequency
     applyActiveClass(idx)
 
-    // create as helpers?
-    // Remove form visibility when non-daily frequency is selected
-    let forms = document.querySelectorAll('form')
-    if (idx !== 0) {
-      forms.forEach((form) => form.classList.remove('form-visible'))
-    }
+    // Remove form when Daily is not selected
+    toggleFormVisibility(idx)
 
-    // Remove expand when non-daily frequency is selected
-    let wrappers = document.querySelectorAll('.stat-card-inner-wrapper')
-    if (idx !== 0) {
-      wrappers.forEach((wrapper) => wrapper.classList.remove('expand'))
-    }
+    // Remove form expand class when Daily is not selected
+    toggleFormExpand(idx)
   }
 
   // Updates setStats when daily frequency is selected
