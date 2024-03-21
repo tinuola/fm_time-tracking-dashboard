@@ -14,18 +14,22 @@ function Navbar() {
 
     themeToggle.classList.toggle('toggle-bg')
 
+    document.body.classList.toggle('theme-light')
+
     // Change opacity of accented/colorful headers
     changePseudoElementOpacity()
 
     // If OS is set to light mode...
-    if (prefersLightScheme.matches) {
-      // ...apply dark theme to override light styles
-      document.body.classList.toggle('theme-dark')
-      // Otherwise...
-    } else {
-      // ...apply light theme to override dark styles
-      document.body.classList.toggle('theme-light')
-    }
+    // if (prefersLightScheme.matches) {
+    // ...apply dark theme to override light styles
+    // document.body.classList.toggle('theme-light')
+    // changePseudoElementOpacity()
+    // Otherwise...
+    // } else {
+    // ...apply light theme to override dark styles
+    // document.body.classList.toggle('theme-light')
+    // changePseudoElementOpacity()
+    // }
   }
 
   return (

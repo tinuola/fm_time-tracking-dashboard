@@ -47,6 +47,11 @@ body {
   --btn-bground: var(--blue);
   --form-input: var(--pale-blue);
   --form-border: var(--pale-blue);
+  /*  */
+  --toggle-bg: var(--desat-blue);
+  --toggle-btn: var(--pale-blue);
+  --toggle-bg-switch: var(--medium-gray);
+  --toggle-action: var(--white);
 }
 
 /* Light Theme */
@@ -64,40 +69,19 @@ body.theme-light {
   --btn-bground: var(--dark-blue);
   --form-input: var(--lightest-gray);
   --form-border: var(--gray);
+  /*  */
+  /* --toggle-bg: var(--medium-gray);
+  --toggle-btn: var(--white);
+  --toggle-bg-switch: var(--desat-blue);
+  --toggle-action: var(--pale-blue); */
 }
 
 /* Setting for users who prefer light mode at OS level */
 @media (prefers-color-scheme: light) {
   body {
-    --body: var(--off-white);
-    --card-bground: var(--lightest-gray);
-    --user-card: var(--light-gray);
-    --card-hover: var(--light-gray);
-    --primary-text: var(--darkest-blue);
-    --secondary-text: var(--medium-gray);
-    --active-text: var(--darkest-blue);
-    --inactive-text: var(--medium-gray);
-    --hover-text: var(--darkest-blue);
-    --form-focus: var(--medium-gray);
-    --btn-bground: var(--dark-blue);
-    --form-input: var(--lightest-gray);
-    --form-border: var(--gray);
   }
 
   /* Override light mode with dark mode if user decides to swap */
   body.theme-dark {
-    --body: var(--darkest-blue);
-    --card-bground: var(--dark-blue);
-    --user-card: var(--blue);
-    --card-hover: var(--hover-blue);
-    --primary-text: var(--white);
-    --secondary-text: var(--pale-blue);
-    --active-text: var(--white);
-    --inactive-text: var(--desat-blue);
-    --hover-text: var(--white);
-    --form-focus: var(--blue);
-    --btn-bground: var(--blue);
-    --form-input: var(--pale-blue);
-    --form-border: var(--pale-blue);
   }
 }
