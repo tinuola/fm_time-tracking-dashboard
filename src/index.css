@@ -105,7 +105,9 @@ nav {
   }
 }
 
+/*************/
 /* User Card */
+/*************/
 
 .user-card-block {
   max-width: 255px;
@@ -113,12 +115,6 @@ nav {
   background-color: var(--card-bground);
   border-radius: 1rem;
   align-self: flex-start;
-}
-
-@media (max-width: 875px) {
-  .user-card-block {
-    max-width: 100%;
-  }
 }
 
 .user-details-wrapper {
@@ -152,6 +148,10 @@ nav {
 }
 
 @media (max-width: 875px) {
+  .user-card-block {
+    max-width: 100%;
+  }
+
   .user-details-wrapper {
     flex-direction: row;
     align-items: center;
@@ -178,9 +178,11 @@ nav {
   }
 }
 
-/* Times */
+/***************/
+/* Frequencies */
+/***************/
 
-.period-labels-wrapper {
+.freq-labels-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -190,18 +192,7 @@ nav {
   margin-top: 1.75rem;
 }
 
-@media (max-width: 875px) {
-  .period-labels-wrapper {
-    flex-direction: row;
-    justify-content: space-between;
-    row-gap: 0;
-    max-width: 327px;
-    margin-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-}
-
-.period-labels {
+.freq-labels {
   background-color: transparent;
   border: none;
   color: var(--inactive-text);
@@ -211,15 +202,28 @@ nav {
   transition: color 0.3s;
 }
 
-.period-labels:hover {
+.freq-labels:hover {
   color: var(--hover-text);
 }
 
-.period-labels.active {
+.freq-labels.active {
   color: var(--active-text);
 }
 
-/* Stats Card */
+@media (max-width: 875px) {
+  .freq-labels-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    row-gap: 0;
+    max-width: 327px;
+    margin-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/**************/
+/* Stat Cards */
+/**************/
 
 .stats-cards-wrapper {
   display: flex;

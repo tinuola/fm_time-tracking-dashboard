@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import { getFrequency, getUser } from '../utils/appData'
 import userImage from '../assets/images/image-jeremy.png'
 
-function UserCard({ handleTimePeriodSelection }) {
+function UserCard({ handleFrequencySelection }) {
   const username = getUser()
-  const periods = getFrequency()
+  const frequencies = getFrequency()
 
   return (
     <>
@@ -18,14 +18,14 @@ function UserCard({ handleTimePeriodSelection }) {
           <h2>{username}</h2>
         </div>
       </div>
-      <div className='period-labels-wrapper'>
-        {periods.map((period, index) => (
+      <div className='freq-labels-wrapper'>
+        {frequencies.map((freq, index) => (
           <button
-            className={`period-labels ${index === 0 ? 'active' : ''}`}
-            key={period}
-            onClick={() => handleTimePeriodSelection(index)}
+            className={`freq-labels ${index === 0 ? 'active' : ''}`}
+            key={freq}
+            onClick={() => handleFrequencySelection(index)}
           >
-            {periods[index]}
+            {frequencies[index]}
           </button>
         ))}
       </div>
@@ -34,9 +34,7 @@ function UserCard({ handleTimePeriodSelection }) {
 }
 
 UserCard.propTypes = {
-  handleTimePeriodSelection: PropTypes.func,
-  periodBtns: PropTypes.array,
-  user: PropTypes.string,
+  handleFrequencySelection: PropTypes.func,
 }
 
 export default UserCard

@@ -16,7 +16,7 @@ function Dashboard() {
 
   // UserCard passes up index of selected frequency
   // Value of index is used to update states
-  const switchTimePeriod = (idx) => {
+  const switchFrequency = (idx) => {
     // States
     setPeriod(idx)
     setStats(() => getStats(idx))
@@ -88,7 +88,7 @@ function Dashboard() {
   return (
     <main className='dashboard-container'>
       <div className='user-card-block'>
-        <UserCard handleTimePeriodSelection={switchTimePeriod} />
+        <UserCard handleFrequencySelection={switchFrequency} />
       </div>
       <div className='stats-cards-block'>
         <StatCard
