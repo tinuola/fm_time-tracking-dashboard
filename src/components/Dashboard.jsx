@@ -9,6 +9,7 @@ import { getStats } from '../utils/appData'
 import calculateHours from '../utils/calculateHours'
 import {
   applyActiveClass,
+  getUIElements,
   toggleFormExpand,
   toggleFormVisibility,
 } from '../utils/uiElemHelpers'
@@ -41,12 +42,7 @@ function Dashboard() {
   const updateDailyValue = (e, idx) => {
     e.preventDefault()
 
-    // create getUIElements helper?
-    let inputFields = document.querySelectorAll('input')
-
-    let forms = document.querySelectorAll('form')
-
-    let wrappers = document.querySelectorAll('.stat-card-inner-wrapper')
+    const { inputFields, forms, wrappers } = getUIElements()
 
     let dailyField = inputFields[idx]
 
@@ -71,8 +67,6 @@ function Dashboard() {
         dailyField.value = ''
         forms[idx].classList.toggle('form-visible')
         forms[idx].lastElementChild.innerText = ``
-        // console.log(wrappers[idx])
-        // console.log('remove expand')
         wrappers[idx].classList.remove('expand')
       } else {
         forms[
