@@ -15,37 +15,33 @@ function getCategories() {
 }
 
 // Return array of stats (hours)
-function getStats(num) {
-  const periods = appData.periods
-
-  // string values: 'daily', 'weekly', 'monthly'
-  // to use as computed properties in data objects
-  let currPeriod = periods[num].curr
+function getStats(freqIdx) {
+  let frequency = getFrequency()[freqIdx]
 
   // Array of objects: {category name, current time, previous time}
   let data = appData.stats.map((stat) => {
     return {
       title: stat.title,
-      currStat: stat.timeframes[currPeriod].current,
-      prevStat: stat.timeframes[currPeriod].previous,
+      currStat: stat.timeframes[frequency].current,
+      prevStat: stat.timeframes[frequency].previous,
     }
   })
 
   /***  Session Storage logic: ***/
 
-  // if daily period and there's nothing in storage,
+  // if daily frequency and there's nothing in storage,
   // add data to storage, return data
 
-  // if daily period and data is stored, return stored data;
+  // if daily frequency and data is stored, return stored data;
   // (stored data should be most up to date version of daily
-  // data, after update by updateDailyValue function
+  // data, after update by updateDailyValue function in Dashboard)
 
   // else return data
 
-  if (num === 0 && !sessionStorage.getItem('dailyStats')) {
+  if (freqIdx === 0 && !sessionStorage.getItem('dailyStats')) {
     sessionStorage.setItem('dailyStats', JSON.stringify(data))
     return data
-  } else if (num === 0 && sessionStorage.getItem('dailyStats')) {
+  } else if (freqIdx === 0 && sessionStorage.getItem('dailyStats')) {
     let updatedDailyStats = JSON.parse(sessionStorage.getItem('dailyStats'))
     return updatedDailyStats
   } else {

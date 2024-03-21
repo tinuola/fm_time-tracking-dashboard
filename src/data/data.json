@@ -1,10 +1,5 @@
 {
   "user": "Jeremy Robson",
-  "periods": [
-    { "curr": "daily", "prev": "yesterday" },
-    { "curr": "weekly", "prev": "last week" },
-    { "curr": "monthly", "prev": "last month" }
-  ],
   "stats": [
     {
       "title": "work",
