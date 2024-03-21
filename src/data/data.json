@@ -1,6 +1,6 @@
 {
   "user": "Jeremy Robson",
-  "range": [
+  "periods": [
     { "curr": "daily", "prev": "yesterday" },
     { "curr": "weekly", "prev": "last week" },
     { "curr": "monthly", "prev": "last month" }

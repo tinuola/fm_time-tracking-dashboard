@@ -7,18 +7,18 @@ function getUser() {
 
 // Return array of strings: [daily, weekly, monthly]
 function getFrequency() {
-  const periods = appData.range.map((obj) => obj.curr)
-  return periods
+  const frequencies = appData.periods.map((obj) => obj.curr)
+  return frequencies
 }
 
 // Return obj of paired current and past frequencies
 // Example: "daily" and "yesterday"
-function getRange(idx) {
-  const periods = appData.range
-  const currPeriod = periods[idx].curr
-  const prevPeriod = periods[idx].prev
-  return { currPeriod, prevPeriod }
-}
+// function getRange(idx) {
+//   const periods = appData.periods
+//   const currPeriod = periods[idx].curr
+//   const prevPeriod = periods[idx].prev
+//   return { currPeriod, prevPeriod }
+// }
 
 // Return array of categories: ['work', 'play', etc]
 function getCategories() {
@@ -28,7 +28,7 @@ function getCategories() {
 
 // Return array of stats (hours)
 function getStats(num) {
-  const periods = appData.range
+  const periods = appData.periods
 
   // string values: 'daily', 'weekly', 'monthly'
   // to use as computed properties in data objects
@@ -65,4 +65,4 @@ function getStats(num) {
   }
 }
 
-export { getUser, getFrequency, getRange, getCategories, getStats }
+export { getUser, getFrequency, /*getRange,*/ getCategories, getStats }

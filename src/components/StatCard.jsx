@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
+
+// Components, Data, Assets
 import StatForm from './StatForm'
-import { getRange } from '../utils/appData'
-import verifyStorage from '../utils/verifyStorage'
+// import { getRange } from '../utils/appData'
 import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 
-function StatCard({ stats, period, getUpdatedDailyValue }) {
-  const { currPeriod, prevPeriod } = getRange(period)
+// Helpers
+import verifyStorage from '../utils/verifyStorage'
+
+function StatCard({ stats, frequency, getUpdatedDailyValue }) {
+  // const { currPeriod, prevPeriod } = getRange(frequency)
 
   // Move to util
   const showEditField = (idx) => {
@@ -38,7 +42,7 @@ function StatCard({ stats, period, getUpdatedDailyValue }) {
               <header className='stat-card-header'>
                 <h3>{stat.title}</h3>
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
-                {currPeriod === 'daily' && verifyStorage('sessionStorage') && (
+                {frequency === 0 && verifyStorage('sessionStorage') && (
                   <>
                     <button onClick={() => showEditField(index)}>
                       <img
@@ -64,8 +68,15 @@ function StatCard({ stats, period, getUpdatedDailyValue }) {
                 </h4>
                 <div className='stat-card-footer'>
                   <p>
-                    {prevPeriod} - {stat.prevStat}hr
+                    {frequency === 1
+                      ? `last week`
+                      : frequency === 2
+                      ? `last month`
+                      : `yesterday`}{' '}
+                    - {stat.prevStat}hr
                     {stat.prevStat > 1 && `s`}
+                    {/* {prevPeriod} - {stat.prevStat}hr
+                    {stat.prevStat > 1 && `s`} */}
                   </p>
                 </div>
               </div>
@@ -79,8 +90,8 @@ function StatCard({ stats, period, getUpdatedDailyValue }) {
 
 StatCard.propTypes = {
   stats: PropTypes.array,
-  currPeriod: PropTypes.string,
-  prevPeriod: PropTypes.string,
+  // currPeriod: PropTypes.string,
+  // prevPeriod: PropTypes.string,
   getUpdatedDailyValue: PropTypes.func,
 }
 

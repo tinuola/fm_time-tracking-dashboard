@@ -11,14 +11,14 @@ import applyActiveClass from '../utils/applyActiveClass'
 
 function Dashboard() {
   // States
-  const [period, setPeriod] = useState(0)
-  let [stats, setStats] = useState(() => getStats(period))
+  const [frequency, setFrequency] = useState(0)
+  let [stats, setStats] = useState(() => getStats(frequency))
 
   // UserCard passes up index of selected frequency
   // Value of index is used to update states
   const switchFrequency = (idx) => {
     // States
-    setPeriod(idx)
+    setFrequency(idx)
     setStats(() => getStats(idx))
 
     // Set class on selected frequency
@@ -92,7 +92,7 @@ function Dashboard() {
       </div>
       <div className='stats-cards-block'>
         <StatCard
-          period={period}
+          frequency={frequency}
           stats={stats}
           getUpdatedDailyValue={updateDailyValue}
         />
