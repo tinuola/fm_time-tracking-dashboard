@@ -2,13 +2,8 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 import { changePseudoElementOpacity } from '../utils/uiElemHelpers'
 
 function Navbar() {
-  // Theme Switching:
-  // https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class
-
-  const prefersLightScheme = window.matchMedia('(prefers-color-scheme: light)')
-
   const handleThemeSwitch = (e) => {
-    e.target.classList.toggle('toggle-action')
+    e.target.classList.toggle('toggle-btn-position')
 
     const themeToggle = document.querySelector('.toggle')
 
@@ -18,18 +13,6 @@ function Navbar() {
 
     // Change opacity of accented/colorful headers
     changePseudoElementOpacity()
-
-    // If OS is set to light mode...
-    // if (prefersLightScheme.matches) {
-    // ...apply dark theme to override light styles
-    // document.body.classList.toggle('theme-light')
-    // changePseudoElementOpacity()
-    // Otherwise...
-    // } else {
-    // ...apply light theme to override dark styles
-    // document.body.classList.toggle('theme-light')
-    // changePseudoElementOpacity()
-    // }
   }
 
   return (

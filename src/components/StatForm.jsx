@@ -14,10 +14,7 @@ function StatForm({ getUpdatedDailyValue, index }) {
 
   return (
     <>
-      <form
-        onSubmit={(e) => getUpdatedDailyValue(e, index)}
-        className='formElem'
-      >
+      <form onSubmit={(e) => getUpdatedDailyValue(e, index)}>
         <label
           htmlFor={`stat-input-${categories[index]}`}
           className='sr-only'
@@ -32,7 +29,12 @@ function StatForm({ getUpdatedDailyValue, index }) {
             placeholder={`Enter daily ${categories[index]} hours`}
             onChange={clearError}
           />
-          <button type='submit'>Update</button>
+          <button
+            type='submit'
+            className='update-btn'
+          >
+            Update
+          </button>
         </div>
         <p className='error-msg'></p>
       </form>

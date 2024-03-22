@@ -23,7 +23,10 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
                 {frequency === 0 && verifyStorage('sessionStorage') && (
                   <>
-                    <button onClick={() => showEditForm(index)}>
+                    <button
+                      onClick={() => showEditForm(index)}
+                      className='edit-btn'
+                    >
                       <img
                         src={iconEllipsis}
                         alt=''
