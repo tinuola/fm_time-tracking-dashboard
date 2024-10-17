@@ -10,6 +10,10 @@ Solution to the _[Time Tracking Dashboard](https://www.frontendmentor.io/challen
   - See hover states for all interactive elements on the page
   - Switch between viewing Daily, Weekly, and Monthly stats
 
+### Solution
+
+Live Site: [tt-fm-timetracking-dashboard.netlify.app/](https://tt-fm-timetracking-dashboard.netlify.app/)
+
 ### Enhancement(s)
 
 - Made Daily states/values editable and persisted with Session Storage
@@ -18,32 +22,15 @@ Solution to the _[Time Tracking Dashboard](https://www.frontendmentor.io/challen
   - Improve accessibility
   - Factor in user preference and system default for light-dark mode theme switching
 
-### Solution
-
-Live Site: [tt-fm-timetracking-dashboard.netlify.app/](https://tt-fm-timetracking-dashboard.netlify.app/)
-
 ### Retrospective
 
 - This could have been a fairly straight-forward project, except I opted for an extra layer of challenge by adding interactivity -- making the Daily records editable and storing the new values
 - While the project took longer to complete I learned more in the process about: the Web Storage API, theming, state and prop management.
 
-### Installation
-
-```
-Clone repository
-
-In the project directory:
-
-`npm install` - for dependencies
-
-`npm start` - runs app in development mode
-
-Open http://localhost:3000 (or next available port) to view app in the browser
-```
-
 ### Tools & Resources
 
-- HTML, CSS, JavaScript, React
+- HTML, CSS, JavaScript
+- React
 - CSS Resets
 - Articles/Tutorials
   - [Using the Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API#feature-detecting_localstorage) _(MDN)_
@@ -51,4 +38,20 @@ Open http://localhost:3000 (or next available port) to view app in the browser
   - [Style Pseudo-elements with Javascript Using Custom Properties](https://css-irl.info/quick-tip-style-pseudo-elements-with-javascript-using-custom-properties/)
 - Deployed on Netlify
 
-_Visit my [Frontend Mentor profile](https://www.frontendmentor.io/profile/tinuola) to view other challenges I've completed!_
+### Project Setup
+
+Clone repository
+
+In the project directory:
+
+```sh
+npm install
+```
+
+```sh
+`npm start`
+```
+
+Open http://localhost:3000 (or next available port) to view app in the browser
+
+_Visit my [Frontend Mentor profile](https://www.frontendmentor.io/profile/tinuola) to view other completed challenges!_
