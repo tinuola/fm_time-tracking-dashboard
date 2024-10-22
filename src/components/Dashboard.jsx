@@ -1,3 +1,6 @@
+// Add useEffect for local storage?
+//
+
 import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'

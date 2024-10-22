@@ -1,3 +1,6 @@
+// Remove proptypes
+//  Add useRef for errorFields? instead of domQuery
+
 import PropTypes from 'prop-types'
 import { getCategories } from '../utils/appData'
 

@@ -1,3 +1,4 @@
+// Remove proptypes
 import PropTypes from 'prop-types'
 
 // Components, Assets

@@ -1,3 +1,6 @@
+// To Do: remove proptypes
+// Separate usercard from frequency controls
+
 import PropTypes from 'prop-types'
 import { getFrequency, getUser } from '../utils/appData'
 import userImage from '../assets/images/image-jeremy.png'
