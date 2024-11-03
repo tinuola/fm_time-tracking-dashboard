@@ -14,6 +14,7 @@ function Dashboard() {
   // Value of index is used to update states
   const switchFrequency = (freqIdx) => {
     setFrequency(freqIdx)
+
     setStats(() => getStats(freqIdx))
 
     applyActiveClass(freqIdx)

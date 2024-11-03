@@ -1,4 +1,4 @@
-// Functions to handle various UI behaviors
+// Functions to handle UI behaviors
 
 function getUIElements() {
   const labels = document.querySelectorAll('.freq-labels')
