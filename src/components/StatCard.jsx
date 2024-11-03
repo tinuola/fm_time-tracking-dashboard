@@ -1,13 +1,13 @@
 // Remove proptypes
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 // Components, Assets
-import StatForm from './StatForm'
-import iconEllipsis from '../assets/images/icon-ellipsis.svg'
+// import StatForm from './StatForm'
+// import iconEllipsis from '../assets/images/icon-ellipsis.svg'
 
 // Helpers
-import { showEditForm } from '../utils/uiElemHelpers'
-import verifyStorage from '../utils/verifyStorage'
+// import { showEditForm } from '../utils/uiElemHelpers'
+// import verifyStorage from '../utils/verifyStorage'
 
 function StatCard({ stats, frequency, getUpdatedDailyValue }) {
   return (
@@ -22,7 +22,7 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
               <header className='stat-card-header'>
                 <h3>{stat.title}</h3>
                 {/* Display edit icon only if selection is 'Daily' and browser accepts storage */}
-                {frequency === 0 && verifyStorage('sessionStorage') && (
+                {/* {frequency === 0 && verifyStorage('sessionStorage') && (
                   <>
                     <button
                       onClick={() => showEditForm(index)}
@@ -38,13 +38,13 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
                       </span>
                     </button>
                   </>
-                )}
+                )} */}
               </header>
               <div>
-                <StatForm
+                {/* <StatForm
                   index={index}
                   getUpdatedDailyValue={getUpdatedDailyValue}
-                />
+                /> */}
                 <h4 className='stat-card-value'>
                   {stat.currStat}hr
                   {stat.currStat > 1 && `s`}
@@ -69,10 +69,10 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
   )
 }
 
-StatCard.propTypes = {
-  stats: PropTypes.array,
-  frequency: PropTypes.number,
-  getUpdatedDailyValue: PropTypes.func,
-}
+// StatCard.propTypes = {
+//   stats: PropTypes.array,
+//   frequency: PropTypes.number,
+//   getUpdatedDailyValue: PropTypes.func,
+// }
 
 export default StatCard

@@ -27,26 +27,7 @@ function getStats(freqIdx) {
     }
   })
 
-  /***  Session Storage logic: ***/
-
-  // if daily frequency and there's nothing in storage,
-  // add data to storage, return data
-
-  // if daily frequency and data is stored, return stored data;
-  // (stored data should be most up to date version of daily
-  // data, after update by updateDailyValue function in Dashboard)
-
-  // else return data
-
-  if (freqIdx === 0 && !sessionStorage.getItem('dailyStats')) {
-    sessionStorage.setItem('dailyStats', JSON.stringify(data))
-    return data
-  } else if (freqIdx === 0 && sessionStorage.getItem('dailyStats')) {
-    let updatedDailyStats = JSON.parse(sessionStorage.getItem('dailyStats'))
-    return updatedDailyStats
-  } else {
-    return data
-  }
+  return data
 }
 
 export { getUser, getFrequency, getCategories, getStats }
