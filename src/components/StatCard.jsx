@@ -2,9 +2,9 @@ function StatCard({ stats, schedule }) {
   return (
     <>
       <ul className='stats-cards-wrapper'>
-        {stats.map((stat, index) => (
+        {stats.map((stat) => (
           <li
-            key={index}
+            key={`${schedule}-${stat.title}`}
             className='stat-card'
           >
             <div className='stat-card-inner-wrapper'>
@@ -18,11 +18,11 @@ function StatCard({ stats, schedule }) {
                 </h4>
                 <div className='stat-card-footer'>
                   <p>
-                    {schedule === 1
-                      ? `last week`
-                      : schedule === 2
-                      ? `last month`
-                      : `yesterday`}{' '}
+                    {schedule === 'weekly'
+                      ? 'last week'
+                      : schedule === 'monthly'
+                      ? 'last month'
+                      : 'yesterday'}{' '}
                     - {stat.prevStat}hr
                     {stat.prevStat > 1 && `s`}
                   </p>
