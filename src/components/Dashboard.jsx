@@ -3,31 +3,31 @@ import StatCard from './StatCard'
 import UserCard from './UserCard'
 
 import { getStats } from '../utils/appData'
-import { applyActiveClass } from '../utils/uiHelpers'
+// import { applyActiveClass } from '../utils/uiHelpers'
 
 function Dashboard() {
-  const [frequency, setFrequency] = useState(0)
+  const [schedule, setSchedule] = useState(0)
 
-  const [stats, setStats] = useState(() => getStats(frequency))
+  const [stats, setStats] = useState(() => getStats(schedule))
 
-  // UserCard passes index of selected frequency
+  // UserCard passes index of selected schedule
   // Value of index is used to update states
-  const switchFrequency = (freqIdx) => {
-    setFrequency(freqIdx)
+  const switchSchedule = (freqIdx) => {
+    setSchedule(freqIdx)
 
     setStats(() => getStats(freqIdx))
 
-    applyActiveClass(freqIdx)
+    // applyActiveClass(freqIdx)
   }
 
   return (
     <main className='dashboard-container'>
       <div className='user-card-block'>
-        <UserCard handleFrequencySelection={switchFrequency} />
+        <UserCard handleScheduleSelection={switchSchedule} />
       </div>
       <div className='stats-cards-block'>
         <StatCard
-          frequency={frequency}
+          schedule={schedule}
           stats={stats}
         />
       </div>

@@ -1,4 +1,5 @@
-function StatCard({ stats, frequency, getUpdatedDailyValue }) {
+function StatCard({ stats, schedule }) {
+  // console.log(stats)
   return (
     <>
       <ul className='stats-cards-wrapper'>
@@ -18,9 +19,9 @@ function StatCard({ stats, frequency, getUpdatedDailyValue }) {
                 </h4>
                 <div className='stat-card-footer'>
                   <p>
-                    {frequency === 1
+                    {schedule === 1
                       ? `last week`
-                      : frequency === 2
+                      : schedule === 2
                       ? `last month`
                       : `yesterday`}{' '}
                     - {stat.prevStat}hr

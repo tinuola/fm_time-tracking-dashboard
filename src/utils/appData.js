@@ -4,30 +4,30 @@ function getUser() {
   return appData.user
 }
 
-function getFrequency() {
+function getSchedule() {
   return ['daily', 'weekly', 'monthly']
 }
 
 // Return array of categories: ['work', 'play', etc]
-function getCategories() {
-  const categories = appData.stats.map((obj) => obj.title)
-  return categories
-}
+// function getCategories() {
+//   const categories = appData.stats.map((obj) => obj.title)
+//   return categories
+// }
 
 // Return array of stats (hours)
 function getStats(freqIdx) {
-  let frequency = getFrequency()[freqIdx]
+  let schedule = getSchedule()[freqIdx]
 
   // Array of objects: {category name, current time, previous time}
   let data = appData.stats.map((stat) => {
     return {
       title: stat.title,
-      currStat: stat.timeframes[frequency].current,
-      prevStat: stat.timeframes[frequency].previous,
+      currStat: stat.timeframes[schedule].current,
+      prevStat: stat.timeframes[schedule].previous,
     }
   })
 
   return data
 }
 
-export { getUser, getFrequency, getCategories, getStats }
+export { getUser, getSchedule, /*getCategories,*/ getStats }

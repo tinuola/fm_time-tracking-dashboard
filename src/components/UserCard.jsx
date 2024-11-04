@@ -1,9 +1,10 @@
-import { getFrequency, getUser } from '../utils/appData'
+import { getSchedule, getUser } from '../utils/appData'
 import userImage from '../assets/images/image-jeremy.png'
 
-function UserCard({ handleFrequencySelection }) {
+function UserCard({ handleScheduleSelection }) {
   const username = getUser()
-  const frequencies = getFrequency()
+  const schedules = getSchedule()
+  // console.log(schedules)
 
   return (
     <>
@@ -18,13 +19,13 @@ function UserCard({ handleFrequencySelection }) {
         </div>
       </div>
       <div className='freq-labels-wrapper'>
-        {frequencies.map((freq, index) => (
+        {schedules.map((schedule, index) => (
           <button
             className={`freq-labels ${index === 0 ? 'active' : ''}`}
-            key={freq}
-            onClick={() => handleFrequencySelection(index)}
+            key={schedule}
+            onClick={() => handleScheduleSelection(index)}
           >
-            {frequencies[index]}
+            {schedules[index]}
           </button>
         ))}
       </div>
