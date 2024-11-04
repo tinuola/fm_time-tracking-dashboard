@@ -1,5 +1,4 @@
 function StatCard({ stats, schedule }) {
-  // console.log(stats)
   return (
     <>
       <ul className='stats-cards-wrapper'>

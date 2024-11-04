@@ -4,7 +4,6 @@ import userImage from '../assets/images/image-jeremy.png'
 function UserCard({ handleScheduleSelection }) {
   const username = getUser()
   const schedules = getSchedule()
-  // console.log(schedules)
 
   return (
     <>
@@ -23,7 +22,7 @@ function UserCard({ handleScheduleSelection }) {
           <button
             className={`freq-labels ${index === 0 ? 'active' : ''}`}
             key={schedule}
-            onClick={() => handleScheduleSelection(index)}
+            onClick={() => handleScheduleSelection(schedule, index)}
           >
             {schedules[index]}
           </button>
