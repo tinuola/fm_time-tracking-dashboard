@@ -1,4 +1,4 @@
-import { getSchedule, getUser } from '../utils/appData'
+import { getSchedule, getUser } from '../utils/dataUtil'
 import userImage from '../assets/images/image-jeremy.png'
 
 function UserCard({ handleScheduleSelection }) {

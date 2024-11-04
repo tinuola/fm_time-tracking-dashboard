@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
-import { getStats } from '../utils/appData'
-import { applyActiveClass } from '../utils/uiHelpers'
+import { getStats } from '../utils/dataUtil'
+import { applyActiveClass } from '../utils/uiUtil'
 
 function Dashboard() {
   const [schedule, setSchedule] = useState('daily')
