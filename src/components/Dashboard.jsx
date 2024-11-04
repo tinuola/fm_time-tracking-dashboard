@@ -2,20 +2,16 @@ import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
 import { getStats } from '../utils/dataUtil'
-import { applyActiveClass } from '../utils/uiUtil'
 
 function Dashboard() {
   const [schedule, setSchedule] = useState('daily')
 
   const [stats, setStats] = useState(() => getStats(schedule))
 
-  // UserCard passes schedule range and index to set state
-  const switchSchedule = (range, index) => {
+  // UserCard passes schedule range to set state
+  const switchSchedule = (range) => {
     setSchedule(range)
-
     setStats(() => getStats(range))
-
-    applyActiveClass(index)
   }
 
   return (

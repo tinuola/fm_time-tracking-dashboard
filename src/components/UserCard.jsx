@@ -1,9 +1,11 @@
+import { useRef } from 'react'
 import { getSchedule, getUser } from '../utils/dataUtil'
 import userImage from '../assets/images/image-jeremy.png'
 
 function UserCard({ handleScheduleSelection }) {
   const username = getUser()
   const schedules = getSchedule()
+  const rangeRef = useRef('daily')
 
   return (
     <>
@@ -18,13 +20,19 @@ function UserCard({ handleScheduleSelection }) {
         </div>
       </div>
       <div className='freq-labels-wrapper'>
-        {schedules.map((schedule, index) => (
+        {schedules.map((schedule) => (
           <button
-            className={`freq-labels ${index === 0 ? 'active' : ''}`}
+            className={`freq-labels ${
+              schedule === rangeRef.current ? 'active' : ''
+            }`}
             key={schedule}
-            onClick={() => handleScheduleSelection(schedule, index)}
+            ref={rangeRef}
+            onClick={() => {
+              handleScheduleSelection(schedule)
+              rangeRef.current = schedule
+            }}
           >
-            {schedules[index]}
+            {schedule}
           </button>
         ))}
       </div>
