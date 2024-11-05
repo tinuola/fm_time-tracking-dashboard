@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import StatCard from './StatCard'
 import UserCard from './UserCard'
+import ScheduleCard from './ScheduleCard'
 import { getStats } from '../utils/dataUtil'
 
 function Dashboard() {
@@ -17,7 +18,8 @@ function Dashboard() {
   return (
     <main className='dashboard-container'>
       <div className='user-card-block'>
-        <UserCard handleScheduleSelection={switchSchedule} />
+        <UserCard />
+        <ScheduleCard handleScheduleSelection={switchSchedule} />
       </div>
       <div className='stats-cards-block'>
         <StatCard
