@@ -20,8 +20,9 @@
   <br>
 - Step 10: Refactor
   - Simplify app back to project criteria
-  - Remove theme switch
-  - Remove forms
+  - Remove theme switch/nav, forms
+  - Refactor/pare down utilities
+  - Create new component for Schedule ranges
     <br>
 
 ### Articles/Tutorials
