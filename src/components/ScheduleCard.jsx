@@ -7,10 +7,10 @@ function ScheduleCard({ handleScheduleSelection }) {
 
   return (
     <>
-      <div className='freq-labels-wrapper'>
+      <div className='schedule-labels-wrapper'>
         {schedules.map((schedule) => (
           <button
-            className={`freq-labels ${
+            className={`schedule-labels ${
               schedule === rangeRef.current ? 'active' : ''
             }`}
             key={schedule}
