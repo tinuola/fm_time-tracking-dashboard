@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
-/**********/
-/* Layout */
-/**********/
+body,
+html {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+}
 
 body {
   background-color: var(--body);
   color: var(--primary-text);
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
 }
+
+/**********/
+/* Layout */
+/**********/
 
 .container {
   display: grid;
@@ -118,7 +120,7 @@ body {
 }
 
 /***************/
-/* Frequencies */
+/* Schedules */
 /***************/
 
 .freq-labels-wrapper {
