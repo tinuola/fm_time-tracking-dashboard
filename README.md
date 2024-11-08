@@ -4,7 +4,7 @@ Solution to the _[Time Tracking Dashboard](https://www.frontendmentor.io/challen
 
 ### Challenge
 
-- Build out a dashboard using provided [desktop](/archive/fem-assets/design/desktop-design.jpg) and [mobile](/archive/fem-assets/design/mobile-design.jpg) designs
+- Build out a dashboard using provided [desktop](/archive/fm-assets/design/desktop-design.jpg) and [mobile](/archive/fm-assets/design/mobile-design.jpg) designs
 - Users should be able to:
   - View the optimal layout for the site depending on their device's screen size
   - See hover states for all interactive elements on the page
